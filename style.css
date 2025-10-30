@@ -1,0 +1,92 @@
+.Nome{
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #bec4ca;
+    animation: typing 2s steps(36), 
+    cursor .4s step-end infinite alternate;
+}
+
+    @keyframes typing {
+    from { width: 0; }
+    to { width: 36ch; } 
+    }
+
+    @keyframes blink {
+    50% { border-color: transparent; }
+}
+.navbar {
+  background: linear-gradient(90deg, #061222, #447794 ); 
+}
+.Pinto{
+    color: #447794;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #bec4ca;
+    animation: typing 2s steps(42), 
+    cursor .4s step-end infinite alternate;
+}
+
+    @keyframes typing {
+    from { width: 0; }
+    to { width: 42ch; } 
+    }
+
+    @keyframes blink {
+    50% { border-color: transparent; }
+}
+button:hover .stars{
+display: block;
+filter: drop-shadow(0 0 10px #447794);
+}
+.card{
+    margin: 1%;
+}
+.Sobre-Mim{
+    color: #447794;
+}
+.Logo_Python{
+    margin-bottom: 5vw;
+    width: 20vw;
+    height: auto;
+    animation: rodar 20s linear infinite;
+}
+.Texto_Python{
+   margin-bottom: 6vw;
+   
+}
+#Inicio{
+  font-family: "Parisienne", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+#Foto_Perfil{
+    animation: entrar 1.2s ease-out forwards;
+}
+@keyframes entrar {
+      0% {
+        opacity: 0;
+        transform: translateX(-100px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+@keyframes rodar{
+from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+.Bloco_Python{
+    align-items: flex-start;
+}
+.Texto_Bloco_Python{
+    display: flex;
+    flex-direction: column; /* título em cima, texto embaixo */
+  }
+#Titulo_Python{
+    color: #447794;
+}
