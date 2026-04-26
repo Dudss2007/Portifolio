@@ -1211,3 +1211,35 @@ button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
     .cert-info-right { align-items: flex-start !important; }
     .btn-ver-diploma { width: 100%; justify-content: center; }
 }
+.social-links-bottom {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 20px !important;
+    width: 100% !important;
+    padding: 40px 0 !important; /* Dá espaço no final da página */
+    clear: both !important;
+}
+
+.social-icon {
+    flex-shrink: 0 !important; /* Impede o ícone de amassar */
+}
+
+/* Destrava o Carrossel no Mobile */
+@media (max-width: 768px) {
+    .carousel-track-interactive {
+        overflow-x: auto !important;
+        display: flex !important;
+        scroll-snap-type: x proximity !important; /* Ajuda a parar no card */
+        -webkit-overflow-scrolling: touch !important; /* Scroll liso no iPhone */
+    }
+    
+    .carousel-wrap-interactive {
+        mask-image: none !important;
+        -webkit-mask-image: none !important;
+    }
+
+    .service-card {
+        scroll-snap-align: center !important;
+    }
+}

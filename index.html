@@ -316,81 +316,79 @@
     });
 </script>
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const hiddenElements = document.querySelectorAll('.hidden');
-
-        /* --- VERIFICAÇÃO DE TELA (MOBILE VS PC) --- */
-        if (window.innerWidth <= 768) {
-            // SE FOR CELULAR: Arranca a invisibilidade e mostra tudo na mesma hora!
-            hiddenElements.forEach((el) => {
-                el.classList.remove('hidden'); // Tira a classe que causa o problema
-                el.classList.add('show');      // Garante que está visível
-            });
-        } else {
-            // SE FOR PC: Roda a lógica do Scroll Reveal (Fade-in) normalmente
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('show');
-                    }
-                });
-            });
-
-            hiddenElements.forEach((el) => observer.observe(el));
-        }
-    });
-</script>
-<script>
 document.addEventListener("DOMContentLoaded", function() {
-    const track = document.getElementById('track-projetos');
-    
-    // Clona os itens automaticamente 3 vezes
-    const itemsHTML = track.innerHTML;
-    track.innerHTML += itemsHTML + itemsHTML + itemsHTML;
+    const isMobile = window.innerWidth <= 768;
+    const container = document.getElementById('anime-bg');
+    const heroVideo = document.querySelector('.hero-video');
 
-    let isPaused = false;
-    
-    // AGORA SIM VOCÊ PODE USAR NÚMEROS MINÚSCULOS!
-    // 0.15 é bem lento. 0.2 ou 0.3 fica num meio termo legal.
-    let speed = 0.5; 
-    
-    // Variável "fantasma" que guarda a posição com casas decimais
-    let scrollPos = track.scrollLeft; 
-
-    function autoScroll() {
-        if (!isPaused) {
-            scrollPos += speed;
-            track.scrollLeft = scrollPos; // Aplica o número quebrado
-            
-            // Reseta o loop perfeitamente
-            if (scrollPos >= track.scrollWidth / 4) {
-                scrollPos = 0;
-                track.scrollLeft = 0;
-            }
-        } else {
-            // Se o carrossel estiver pausado (mouse em cima) e você clicar na seta, 
-            // ele atualiza a variável fantasma para não dar um "pulo" quando o mouse sair.
-            scrollPos = track.scrollLeft;
-        }
-        requestAnimationFrame(autoScroll);
+    // 1. LÓGICA DO VÍDEO E REVEAL
+    if (isMobile) {
+        if (heroVideo) heroVideo.remove();
+        document.querySelectorAll('.hidden').forEach(el => {
+            el.classList.remove('hidden');
+            el.classList.add('show');
+        });
+    } else {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('show');
+            });
+        });
+        document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
     }
-    autoScroll();
 
-    // Pausa com o hover
-    const wrap = document.querySelector('.carousel-wrap-interactive');
-    wrap.addEventListener('mouseenter', () => isPaused = true);
-    
-    wrap.addEventListener('mouseleave', () => {
-        isPaused = false;
-        // Atualiza a posição exata de onde parou antes de voltar a rodar
-        scrollPos = track.scrollLeft; 
-    });
-});
+    // 2. ESTRELAS (VOLTANDO COM TUDO)
+    const starCount = isMobile ? 80 : 550; // Mais estrelas no mobile, mas sem exagero
+    const starsArray = [];
 
-function moverCarrossel(distancia) {
+    class Estrela {
+        constructor() {
+            this.element = document.createElement('div');
+            this.element.classList.add('particula-espaco');
+            const size = Math.random() * 3;
+            this.element.style.width = size + 'px';
+            this.element.style.height = size + 'px';
+            this.element.style.opacity = Math.random();
+            container.appendChild(this.element);
+            this.x = Math.random() * window.innerWidth;
+            this.y = Math.random() * window.innerHeight;
+            this.vy = -(Math.random() * 0.15 + 0.05);
+        }
+        update() {
+            this.y += this.vy;
+            if (this.y < -10) {
+                this.y = window.innerHeight + 10;
+                this.x = Math.random() * window.innerWidth;
+            }
+            this.element.style.transform = `translate(${this.x}px, ${this.y}px)`;
+        }
+    }
+
+    for (let j = 0; j < starCount; j++) starsArray.push(new Estrela());
+
+    function animateStars() {
+        starsArray.forEach(s => s.update());
+        requestAnimationFrame(animateStars);
+    }
+    animateStars();
+
+    // 3. CARROSSEL (SCROLL LIVRE NO MOBILE)
     const track = document.getElementById('track-projetos');
-    track.scrollBy({ left: distancia, behavior: 'smooth' });
-}
+    if (!isMobile && track) {
+        let scrollPos = 0;
+        function autoScroll() {
+            scrollPos += 0.5;
+            track.scrollLeft = scrollPos;
+            if (scrollPos >= track.scrollWidth / 4) scrollPos = 0;
+            requestAnimationFrame(autoScroll);
+        }
+        autoScroll();
+    } else if (track) {
+        // No Mobile, garante que o CSS permita o scroll manual
+        track.style.overflowX = "auto";
+        track.style.webkitOverflowScrolling = "touch";
+    }
+});
 </script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
