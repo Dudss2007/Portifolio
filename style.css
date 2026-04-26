@@ -11,8 +11,9 @@ html, body {
     width: 100%;
     max-width: 100%;
     overflow-x: hidden;
-    position: relative; /* O segredo para o celular respeitar o hidden */
+    position: relative; 
 }
+
 :root {
     /* Modo Claro (Padrão) */
     --cor-fundo: #ffffff;
@@ -214,7 +215,7 @@ h2.border-bottom {
 .bloco-anime {
             position: absolute;
             background-size: contain; background-repeat: no-repeat; background-position: center;
-            will-change: transform; /* Otimização de performance */
+            will-change: transform; 
         }
 @keyframes viajar {
     0% { 
@@ -233,8 +234,9 @@ h2.border-bottom {
     background-color: white; 
     border-radius: 50%;
     pointer-events: none; 
-    will-change: transform; /* Otimização para não travar */
+    will-change: transform; 
 }
+
 /* =========================================
    8. PYTHON & EXTRAS
    ========================================= */
@@ -244,7 +246,6 @@ h2.border-bottom {
 .card { margin: 1%; }
 button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
 
-
 /* =========================================
    9. CONSTELAÇÃO ONE FOR ALL
    ========================================= */
@@ -252,7 +253,6 @@ button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
     position: relative; z-index: 5; padding: 70px 0; margin-bottom: 30px;
 }
 
-/* GRID */
 .ofa-constellation-grid {
     display: grid;
     grid-template-columns: repeat(9, 1fr);
@@ -266,7 +266,6 @@ button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
     z-index: 5;
 }
 
-/* O Núcleo */
 .star-flare {
     position: relative;
     width: 6px; height: 6px;
@@ -277,7 +276,6 @@ button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
     z-index: 2;
 }
 
-/* Os Raios (Cruz) */
 .star-flare::before,
 .star-flare::after {
     content: ''; position: absolute;
@@ -291,15 +289,12 @@ button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
 .star-flare::before { width: 60px; height: 2px; transform: translate(-50%, -50%); }
 .star-flare::after { width: 2px; height: 45px; transform: translate(-50%, -50%); }
 
-/* Aplicação Cores */
 .c1 { --star-color: var(--c1-color); } .c2 { --star-color: var(--c2-color); }
 .c3 { --star-color: var(--c3-color); } .c4 { --star-color: var(--c4-color); }
 .c5 { --star-color: var(--c5-color); } .c6 { --star-color: var(--c6-color); }
 .c7 { --star-color: var(--c7-color); } .c8 { --star-color: var(--c8-color); }
 .c9 { --star-color: var(--c9-color); }
 
-
-/* Linhas Conectoras */
 .ofa-star-node::before {
     content: ''; 
     position: absolute;
@@ -312,7 +307,6 @@ button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
     opacity: 0.7; pointer-events: none;
 }
 
-/* Ângulos e Tamanhos */
 .n1 { grid-column: 1; grid-row: 3; } .n1::before { width: 158px; transform: rotate(-42deg); }
 .n2 { grid-column: 2; grid-row: 1; } .n2::before { width: 233px; transform: rotate(61deg); }
 .n3 { grid-column: 3; grid-row: 5; } .n3::before { width: 163px; transform: rotate(-42deg); }
@@ -323,8 +317,6 @@ button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
 .n8 { grid-column: 8; grid-row: 5; } .n8::before { width: 193px; transform: rotate(-54deg); height: 5px; background: linear-gradient(90deg, var(--c8-color), var(--c9-color)); }
 .n9 { grid-column: 9; grid-row: 2; } .n9::before { display: none; }
 
-
-/* Animações e Extras OFA */
 .large .star-flare { transform: scale(1.3); }
 .final .star-flare { animation: starPulseFinal 2s infinite alternate; }
 
@@ -349,7 +341,6 @@ button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
     100% { opacity: 0.6; scale: 1.2; }
 }
 
-/* Tooltips */
 .ofa-star-node::after {
     content: attr(data-user); position: absolute; top: -40px;
     font-size: 0.8rem; color: var(--star-color); opacity: 0;
@@ -358,8 +349,9 @@ button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
 .ofa-star-node:hover::after { opacity: 1; }
 .ofa-phrase-box p { color: #f1f1f1 !important; text-shadow: 0 2px 15px rgba(255,255,255,0.3); }
 
-
-
+/* =========================================
+   HOLOCARDS E EFEITOS
+   ========================================= */
 .section-title-space {
     font-family: 'Segoe UI', sans-serif;
     text-transform: uppercase;
@@ -378,39 +370,26 @@ button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
     border-radius: 12px;
     overflow: hidden;
     z-index: 1;
-
-    /* Fundo Base Escuro */
     background-color: rgba(5, 10, 20, 0.95);
-
-    /* Borda Base (Estável) */
     border: 2px solid rgba(0, 225, 255, 0.5);
-
-    /* Sombra Base (Estável) */
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
-
-    /* Imagens de Fundo */
     background-image:
         linear-gradient(rgba(0, 225, 255, 0.1) 1px, transparent 1px),
         linear-gradient(90deg, rgba(0, 225, 255, 0.1) 1px, transparent 1px);
     background-size: 40px 40px;
     background-position: center;
-
-    /* ANIMAÇÃO DE GLITCH + ONDAS DE BORDA + ECG */
     animation: 
-        holoGlitch 5s infinite linear,    /* Move o card */
-        borderWave 5s infinite linear,    /* Cria as ondas na borda */
-        ekgRun 2.5s linear infinite;      /* Linha de batimento interna */
-        
+        holoGlitch 5s infinite linear,    
+        borderWave 5s infinite linear,    
+        ekgRun 2.5s linear infinite;      
     transition: transform 0.3s ease;
 }
 
-/* O Glitch PNG (Camada Superior) */
 .holo-card::before {
     content: '';
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    
     background-image: url('URL_DA_SUA_IMAGEM_GLITCH.png'); 
     background-size: cover;
     background-position: center;
@@ -421,7 +400,6 @@ button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
     animation: imageFlash 4s infinite linear;
 }
 
-/* Linha de Batimento (ECG) */
 .holo-card::after {
     content: '';
     position: absolute;
@@ -434,69 +412,34 @@ button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
     clip-path: polygon(0% 50%, 10% 50%, 12% 0%, 14% 100%, 16% 50%, 100% 50%);
 }
 
-/* ANIMAÇÃO DA BORDA (SINCRONIZADA COM O GLITCH) */
 @keyframes borderWave {
-    /* 0% até 92% -> Borda calma, apenas brilhando suavemente em Ciano */
     0%, 92% {
         border-color: rgba(0, 225, 255, 0.5);
-        box-shadow: 
-            0 0 15px rgba(0, 225, 255, 0.2),
-            inset 0 0 10px rgba(0, 225, 255, 0.1);
+        box-shadow: 0 0 15px rgba(0, 225, 255, 0.2), inset 0 0 10px rgba(0, 225, 255, 0.1);
     }
-
-    /* 93% -> O "Susto": A borda se divide em Ciano e Magenta (Onda 1) */
     93% {
         border-color: rgba(255, 255, 255, 0.8);
-        box-shadow: 
-            -3px 0 0 #ff00ff,  /* Sombra Magenta para esquerda */
-            3px 0 0 #00ffff,   /* Sombra Ciano para direita */
-            0 0 20px rgba(0, 225, 255, 0.6);
+        box-shadow: -3px 0 0 #ff00ff, 3px 0 0 #00ffff, 0 0 20px rgba(0, 225, 255, 0.6);
     }
-
-    /* 94% -> A inversão (Onda 2) */
     94% {
         border-color: rgba(0, 225, 255, 0.5);
-        box-shadow: 
-            3px 0 0 #ff00ff,   /* Magenta vai para direita */
-            -3px 0 0 #ffff00,  /* Amarelo entra na esquerda */
-            0 0 30px rgba(0, 225, 255, 0.8);
+        box-shadow: 3px 0 0 #ff00ff, -3px 0 0 #ffff00, 0 0 30px rgba(0, 225, 255, 0.8);
     }
-
-    /* 96% -> Estabilizando com leve aberração cromática */
     96% {
         border-color: rgba(0, 225, 255, 0.5);
-        box-shadow: 
-            1px 1px 0 #ff0000,
-            -1px -1px 0 #0000ff;
+        box-shadow: 1px 1px 0 #ff0000, -1px -1px 0 #0000ff;
     }
-
-    /* 100% -> Volta ao normal */
     100% {
         border-color: rgba(0, 225, 255, 0.5);
-        box-shadow: 
-            0 0 15px rgba(0, 225, 255, 0.2),
-            inset 0 0 10px rgba(0, 225, 255, 0.1);
+        box-shadow: 0 0 15px rgba(0, 225, 255, 0.2), inset 0 0 10px rgba(0, 225, 255, 0.1);
     }
 }
 
-/* ANIMAÇÃO DE MOVIMENTO (MANTIDA, SÓ REAJUSTADA PARA SINCRONIA) */
 @keyframes holoGlitch {
-    0%, 92%, 100% { 
-        transform: translate(0, 0) skewX(0deg); 
-        filter: none;
-    }
-    93% { 
-        transform: translate(-2px, 1px); 
-        filter: hue-rotate(90deg); /* Muda cor levemente */
-    }
-    94% { 
-        transform: translate(2px, -1px) skewX(-2deg); 
-        filter: hue-rotate(-90deg);
-    }
-    95% { 
-        transform: translate(0, 0) skewX(1deg); 
-        filter: none;
-    }
+    0%, 92%, 100% { transform: translate(0, 0) skewX(0deg); filter: none; }
+    93% { transform: translate(-2px, 1px); filter: hue-rotate(90deg); }
+    94% { transform: translate(2px, -1px) skewX(-2deg); filter: hue-rotate(-90deg); }
+    95% { transform: translate(0, 0) skewX(1deg); filter: none; }
 }
 
 @keyframes ekgRun {
@@ -517,7 +460,6 @@ button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
     97% { opacity: 0; }
 }
 
-/* --- TEXTOS E SCANLINES --- */
 .holo-header {
     font-family: inherit; font-size: 1rem; color: #00ffff;
     border-bottom: 2px solid rgba(0, 225, 255, 0.3);
@@ -557,26 +499,19 @@ button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
     100% { transform: translateY(50%); }
 }
 
-
 .tech-glass-card {
     position: relative;
     z-index: 2;
-    
-    
     background: rgba(255, 255, 255, 0.03); 
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5); 
-    
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-top: 1px solid rgba(255, 255, 255, 0.2); 
     border-left: 1px solid rgba(255, 255, 255, 0.2); 
-    
     border-radius: 20px;
     padding: 25px;
     height: 100%;
-  
 }
 
-/* Cabeçalho do Card */
 .tech-header {
     display: flex;
     align-items: center;
@@ -587,7 +522,7 @@ button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
 
 .tech-header i {
     font-size: 1.5rem;
-    color: #f0f0f0; /* Mesma cor do seu texto */
+    color: #f0f0f0; 
     margin-right: 12px;
     text-shadow: 0 2px 4px rgba(0,0,0,0.8);
 }
@@ -603,7 +538,6 @@ button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
     text-shadow: 0 2px 4px rgba(0,0,0,0.8);
 }
 
-/* Grid e Itens */
 .tech-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
@@ -611,12 +545,10 @@ button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
 }
 
 .tech-item {
-    /* Mantendo a coerência com o vidro */
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     padding: 10px;
-    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -647,42 +579,29 @@ button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
     border-color: rgba(255, 255, 255, 0.3);
 }
 
-.tech-item:hover i {
-    transform: scale(1.1);
-    opacity: 1;
-}
-
-.tech-item:hover span {
-    opacity: 1;
-}
-/* Mobile */
-@media (max-width: 768px) {
-    .holo-card { padding: 25px; }
-    .holo-card::after { 
-        top: 60px; 
-        clip-path: polygon(0% 50%, 5% 50%, 8% 0%, 11% 100%, 14% 50%, 100% 50%);
-    }
-}
+.tech-item:hover i { transform: scale(1.1); opacity: 1; }
+.tech-item:hover span { opacity: 1; }
 
 .section-title-space {
     color: #ffffff; 
     text-shadow: 0 0 20px rgba(180, 200, 255, 0.4); 
 }
 
-/* CARD VIDRO LÍQUIDO (SEM HOVER) */
+/* =========================================
+   CARDS DE VIDRO LÍQUIDO E METEOROS
+   ========================================= */
 .liquid-glass-card {
     position: relative;
     padding: 40px;
     border-radius: 20px;
-    z-index: 2; /* Texto fica ACIMA dos meteoros */
-    background: rgba(255, 255, 255, 0.03); 
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5); 
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-top: 1px solid rgba(255, 255, 255, 0.2); 
-    border-left: 1px solid rgba(255, 255, 255, 0.2); 
+    z-index: 2; 
+    background: rgba(255, 255, 255, 0.02);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.15); 
+    border-left: 1px solid rgba(255, 255, 255, 0.15); 
 }
 
-/* Conteúdo */
 .glass-content p {
     color: #f0f0f0;
     font-size: 1.15rem;
@@ -696,174 +615,68 @@ button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
     color: #b0d0ff; 
     text-shadow: 0 0 8px rgba(160, 190, 255, 0.3);
 }
-/* --- METEOROS FLUTUANTES --- */
-/* --- METEOROS FLUTUANTES (TAMANHOS AJUSTADOS) --- */
+
 .floating-meteor {
     position: absolute;
-    z-index: 1; /* Fica ATRÁS do vidro */
+    z-index: 1; 
     pointer-events: none;
     opacity: 0.9;
     filter: drop-shadow(0 0 15px rgba(0,0,0,0.8));
     animation: floatRock 6s ease-in-out infinite alternate;
 }
 
-/* Meteoro 1 (Topo Esquerdo) */
-.rock-1 {
-    width: 190px !important;
-    top: -50px;
-    left: -40px;
-    transform: rotate(15deg);
-}
+.rock-1 { width: 190px !important; top: -50px; left: -40px; transform: rotate(15deg); }
+.rock-2 { width: 70px !important; bottom: -40px; right: 0px; animation-delay: -3s; transform: rotate(-10deg); }
+.rock-3, .rock-3-5 { position: absolute !important; z-index: -1 !important; height: auto !important; pointer-events: none; animation: floatRock 7s ease-in-out infinite alternate; filter: brightness(0.9) contrast(0.9); opacity: 0.9; }
+.rock-3 { width: 220px !important; height: auto !important; top: 40%; right: -40px; animation-delay: -4s; }
+.rock-3-5 { width: 95px !important; height: auto !important; top: 41%; right: -20px; animation-delay: -2s; }
+.rock-4 { width: 250px !important; top: -100px; right: 5%; animation-delay: -2s; transform: rotate(45deg); }
+.rock-5 { width: 200px !important; bottom: -60px; left: -1%; animation-delay: -6s; transform: rotate(-20deg); }
 
-/* Meteoro 2 (Baixo Direita) */
-.rock-2 {
-    width: niggerpx !important;
-    bottom: -40px;
-    right: 0px;
-    animation-delay: -3s;
-    transform: rotate(-10deg);
-}
-
-/* Meteoro 3 (Lateral Direita) */
-.rock-3, .rock-3-5 {
-    /* ... (Mantenha as outras propriedades: position, z-index, height, pointer-events, animation) ... */
-    position: absolute !important;
-    z-index: -1 !important;
-    height: auto !important;
-    pointer-events: none;
-    animation: floatRock 7s ease-in-out infinite alternate;
-
-    /* APLICAÇÃO DO FILTRO PARA CLAREAR */
-    filter: brightness(0.9) contrast(0.9); /* Aumenta o brilho e diminui um pouco o contraste */
-    opacity: 0.9; /* Mantém a opacidade se desejar */
-}
-/* --- Metade da Esquerda (Pedra 3) --- */
-.rock-3 {
-    width: 220px !important;      /* Tamanho ajustado para equilibrar com as outras */
-    height: auto !important;     /* ISSO AQUI impede a imagem de esticar e virar um macarrão */
-    top: 40%;                    /* Altura na tela */
-    right: -40px;                 /* Empurra para a esquerda para abrir espaço para a outra metade */
-    animation-delay: -4s;        /* Mantendo o padrão das suas outras pedras */
-}
-
-/* Meteoro 3.5 (Lateral Direita - Metade Direita) */
-.rock-3-5 {
-    width: 95px !important;
-    height: auto !important;     /* Previne o esticamento */
-    top: 41%;                    /* 1% mais baixo para dar o aspecto de quebra irregular */
-    right: -20px;                /* Posicionada encostando na metade esquerda */
-    animation-delay: -2s;      /* Delay quase igual à rock-3, para elas flutuarem "juntas" mas se mexendo um pouco entre si */
-}
-/* Meteoro 4 (Topo Direita) -> AUMENTADO */
-.rock-4 {
-    width: 250px !important; /* Aumentei de 70px para 110px */
-    top: -100px; /* Subi um pouco para não bater no texto */
-    right: 5%;
-    animation-delay: -2s;
-    transform: rotate(45deg);
-}
-
-/* Meteoro 5 (Baixo Esquerda) -> AUMENTADO */
-.rock-5 {
-    width: 200px !important; /* Aumentei de 90px para 140px */
-    bottom: -60px; /* Desci um pouco para não bater no texto */
-    left: -1%;
-    animation-delay: -6s;
-    transform: rotate(-20deg);
-}
-
-/* Animação */
 @keyframes floatRock {
     0% { transform: translateY(0px); }
     100% { transform: translateY(-25px); }
 }
 
-/* Mobile: Esconde os laterais para não quebrar a tela */
-@media (max-width: 992px) {
-    .rock-3, .rock-3-5, .rock-4, .rock-5 { display: none; }
-    .floating-meteor { opacity: 0.5; }
-    .rock-1 { width: 90px !important; left: -10px; top: -30px; }
-    .rock-2 { width: 70px !important; right: -10px; bottom: -30px; }
-}
-.liquid-glass-card {
-    background: rgba(255, 255, 255, 0.02);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-top: 1px solid rgba(255, 255, 255, 0.15); 
-    border-left: 1px solid rgba(255, 255, 255, 0.15); 
-}
 .bg-station-floating {
     position: absolute;
-    top: 25%;           /* Centraliza verticalmente em relação à row */
-    transform: translateY(-50%); /* Ajuste fino da centralização */
-    right: -18%;         /* Posiciona à direita. Ajuste esse valor se quiser mais para dentro ou fora */
-    width: 45%;         /* Tamanho relativo ao container */
-    max-width: 750px;   /* Tamanho máximo para não ficar gigante em telas grandes */
-    z-index: 0;         /* Garante que fique ATRÁS dos cards */
-    pointer-events: none; /* Ignora cliques do mouse */
-    animation: flutuar-estacao 17s ease-in-out infinite; /* Animação de flutuar */
+    top: 25%; 
+    transform: translateY(-50%); 
+    right: -18%; 
+    width: 45%; 
+    max-width: 750px; 
+    z-index: 0; 
+    pointer-events: none; 
+    animation: flutuar-estacao 17s ease-in-out infinite; 
 }
 
-/* Animação suave de flutuação */
 @keyframes flutuar-estacao {
     0%, 100% { transform: translateY(-50%) translateY(0px); }
     50% { transform: translateY(-50%) translateY(-30px); }
 }
 
-/* IMPORTANTE: Esconder em telas menores (tablets verticais e celulares) */
-/* Em telas pequenas não há espaço vazio à direita, então a imagem atrapalharia */
-@media (max-width: 991px) {
-    .bg-station-floating {
-        display: none;
-    }
-}
-
-/* Garantir que os cards fiquem na frente (caso seu CSS antigo não tenha isso) */
-.tech-glass-card {
-    position: relative;
-    z-index: 2;
-}
 .bg-astronaut-floating {
     position: absolute;
-    top: 28%;             /* Altura inicial (mais alto que a nave) */
-    right: -6.7%;           /* Distância da direita (para ficar ao lado da nave) */
-    width: 120px;         /* Tamanho do astronauta */
-    z-index: 0;           /* Fica atrás dos cards */
+    top: 28%; 
+    right: -6.7%; 
+    width: 120px; 
+    z-index: 0; 
     pointer-events: none;
     opacity: 0.9;
     animation: flutuar-astro 12s ease-in-out infinite alternate;
 }
 
-/* Animação de "Spacewalk" (Flutua e gira levemente) */
 @keyframes flutuar-astro {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(-30px); /* Sobe e gira */
-    }
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-30px); }
 }
 
-/* Responsividade: Esconder em telas menores para não atrapalhar o texto */
-@media (max-width: 1200px) {
-    .bg-astronaut-floating {
-        right: 5%; /* Aproxima mais da borda em telas médias */
-        width: 100px;
-    }
-}
-
-@media (max-width: 991px) {
-    .bg-astronaut-floating {
-        display: none; /* Some em tablets/celulares */
-    }
-}
 /* =========================================
-   CARROSSEL INFINITO & CARDS DE SERVIÇO
-========================================= */
-
+   CARROSSEL E CARDS DE SERVIÇOS
+   ========================================= */
 .carousel-wrap-interactive {
   position: relative;
-  width: 100vw; /* Volte para 100vw aqui */
+  width: 100vw; 
   left: 50%;
   right: 50%;
   margin-left: -50vw;
@@ -872,7 +685,6 @@ button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
   margin-bottom: 10px;
   display: flex;
   align-items: center;
-  /* Máscara escura nas bordas pra dar fade */
   mask-image: linear-gradient(to right, transparent 2%, black 15%, black 85%, transparent 98%);
   -webkit-mask-image: linear-gradient(to right, transparent 2%, black 15%, black 85%, transparent 98%);
 }
@@ -882,51 +694,24 @@ button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
   gap: 30px;
   padding: 20px 0;
   overflow-x: auto;
-  scroll-behavior: auto; /* O JS controla a suavidade */
-  /* Esconde a barra de rolagem nativa */
+  scroll-behavior: auto; 
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-.carousel-track-interactive::-webkit-scrollbar {
-  display: none;
-}
+.carousel-track-interactive::-webkit-scrollbar { display: none; }
 
-/* =========================================
-   ESTILO DAS SETAS
-========================================= */
 .carousel-arrow {
-  position: absolute;
-  z-index: 10;
-  background: rgba(20, 25, 35, 0.7);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: white;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  font-size: 1.5rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 0.3s ease;
-  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  position: absolute; z-index: 10; background: rgba(20, 25, 35, 0.7); backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2); color: white; width: 50px; height: 50px;
+  border-radius: 50%; font-size: 1.5rem; cursor: pointer; display: flex; align-items: center;
+  justify-content: center; transition: 0.3s ease; box-shadow: 0 0 15px rgba(0,0,0,0.5);
 }
-
-.carousel-arrow:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: #fff;
-  transform: scale(1.1);
-}
-
+.carousel-arrow:hover { background: rgba(255, 255, 255, 0.2); border-color: #fff; transform: scale(1.1); }
 .left-arrow { left: 5vw; }
 .right-arrow { right: 5vw; }
 
-/* -----------------------------------------
-   O CARD (MANTIDO SEU LIQUID GLASS INTACTO)
------------------------------------------ */
 .service-card {
-  flex-shrink: 0; /* Impede os cards de esmagarem uns aos outros */
+  flex-shrink: 0; 
   text-decoration: none;
   width: 380px;
   background: rgba(20, 25, 35, 0.7);
@@ -936,7 +721,7 @@ button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
   border-top: 1px solid rgba(255, 255, 255, 0.3);
   border-left: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 20px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Esta é a sombra atualizada do PC */
   display: flex;
   flex-direction: column;
   transition: all 0.3s ease;
@@ -954,40 +739,19 @@ button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
   width: 100%; height: 140px; overflow: hidden;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-.service-img-wrapper img {
-  width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;
-}
+.service-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
 .service-card:hover .service-img-wrapper img { transform: scale(1.05); }
 
-.service-content {
-  padding: 20px; display: flex; flex-direction: column; align-items: center; text-align: center;
-}
-.service-icon {
-  width: 28px; height: 28px; color: #ffffff; margin-bottom: 12px;
-}
-.service-title {
-  font-family: 'Orbitron', sans-serif; color: #ffffff; font-size: 1.1rem;
-  font-weight: 600; letter-spacing: 1px; margin: 0 0 10px 0;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-}
-.service-desc {
-  font-family: Arial, sans-serif; color: rgba(255, 255, 255, 0.75);
-  font-size: 0.85rem; line-height: 1.4; margin: 0 0 18px 0;
-}
-.service-badge {
-  background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #ffffff; padding: 6px 16px; border-radius: 20px; font-size: 0.75rem;
-  font-family: 'Orbitron', sans-serif; letter-spacing: 1px; text-transform: uppercase;
-  transition: all 0.3s ease;
-}
-.service-card:hover .service-badge {
-  background: rgba(255, 255, 255, 0.15); border-color: #ffffff;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.2); color: #ffffff;
-}
-/* =========================================
-   FORMAÇÃO E CERTIFICAÇÕES (LIQUID GLASS)
-========================================= */
+.service-content { padding: 20px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.service-icon { width: 28px; height: 28px; color: #ffffff; margin-bottom: 12px; }
+.service-title { font-family: 'Orbitron', sans-serif; color: #ffffff; font-size: 1.1rem; font-weight: 600; letter-spacing: 1px; margin: 0 0 10px 0; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+.service-desc { font-family: Arial, sans-serif; color: rgba(255, 255, 255, 0.75); font-size: 0.85rem; line-height: 1.4; margin: 0 0 18px 0; }
+.service-badge { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); color: #ffffff; padding: 6px 16px; border-radius: 20px; font-size: 0.75rem; font-family: 'Orbitron', sans-serif; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s ease; }
+.service-card:hover .service-badge { background: rgba(255, 255, 255, 0.15); border-color: #ffffff; box-shadow: 0 0 12px rgba(255, 255, 255, 0.2); color: #ffffff; }
 
+/* =========================================
+   FORMAÇÃO E CERTIFICAÇÕES
+   ========================================= */
 .cert-glass-card {
     background: rgba(20, 25, 35, 0.45);
     backdrop-filter: blur(16px) saturate(180%);
@@ -999,7 +763,6 @@ button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
     padding: 30px 25px;
     height: 100%;
     display: flex;
-    /* MUDANÇA: 'stretch' faz o interior do card esticar até o fundo */
     align-items: stretch; 
     gap: 20px;
     transition: all 0.3s ease;
@@ -1012,215 +775,42 @@ button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7); 
 }
 
-/* Ícone na lateral esquerda do card */
 .cert-icon-wrapper {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    width: 55px;
-    height: 55px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    color: #ffffff;
-    flex-shrink: 0;
-    transition: 0.3s ease;
-    /* MUDANÇA: Garante que o ícone fique preso no topo e não estique */
-    align-self: flex-start; 
+    width: 55px; height: 55px; border-radius: 12px; display: flex;
+    align-items: center; justify-content: center; font-size: 1.5rem; color: #ffffff;
+    flex-shrink: 0; transition: 0.3s ease; align-self: flex-start; 
 }
+.cert-glass-card:hover .cert-icon-wrapper { background: rgba(0, 212, 255, 0.1); color: #00e5ff; border-color: rgba(0, 212, 255, 0.3); }
 
-.cert-glass-card:hover .cert-icon-wrapper {
-    background: rgba(0, 212, 255, 0.1);
-    color: #00e5ff; /* Acende um azul ciano sutil no ícone quando passa o mouse */
-    border-color: rgba(0, 212, 255, 0.3);
-}
+.cert-content { display: flex; flex-direction: column; width: 100%; height: 100%; }
+.cert-title { font-family: 'Orbitron', sans-serif; color: #ffffff; font-size: 1.05rem; font-weight: 600; margin: 0 0 8px 0; line-height: 1.4; }
+.cert-inst { font-family: Arial, sans-serif; color: rgba(255, 255, 255, 0.6); font-size: 0.85rem; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 1px; }
 
-.cert-content {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    /* MUDANÇA: Força o conteúdo a ocupar 100% da altura do card */
-    height: 100%; 
-}
-.cert-title {
-    font-family: 'Orbitron', sans-serif;
-    color: #ffffff;
-    font-size: 1.05rem;
-    font-weight: 600;
-    margin: 0 0 8px 0;
-    line-height: 1.4;
-}
-
-.cert-inst {
-    font-family: Arial, sans-serif;
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.85rem;
-    margin: 0 0 20px 0;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* Rodapé do card com as tags */
 .cert-footer {
-    margin-top: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end; /* Alinha os itens pela base */
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    padding-top: 15px;
-    width: 100%;
+    margin-top: auto; display: flex; justify-content: space-between; align-items: flex-end;
+    border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 15px; width: 100%;
 }
 
-/* O Botão de Ver Diploma */
 .btn-ver-diploma {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(0, 212, 255, 0.05);
-    border: 1px solid rgba(0, 212, 255, 0.3);
-    color: #00d4ff;
-    padding: 6px 12px;
-    border-radius: 8px;
-    font-size: 0.75rem;
-    font-family: 'Orbitron', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-decoration: none; /* Tira o sublinhado do link */
-    transition: all 0.3s ease;
+    display: inline-flex; align-items: center; gap: 6px; background: rgba(0, 212, 255, 0.05);
+    border: 1px solid rgba(0, 212, 255, 0.3); color: #00d4ff; padding: 6px 12px;
+    border-radius: 8px; font-size: 0.75rem; font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase; letter-spacing: 1px; text-decoration: none; transition: all 0.3s ease;
 }
+.btn-ver-diploma:hover { background: rgba(0, 212, 255, 0.2); color: #fff; border-color: #00d4ff; box-shadow: 0 0 10px rgba(0, 212, 255, 0.4); transform: translateY(-2px); }
+.btn-ver-diploma.disabled { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.3); pointer-events: none; cursor: not-allowed; }
 
-.btn-ver-diploma:hover {
-    background: rgba(0, 212, 255, 0.2);
-    color: #fff;
-    border-color: #00d4ff;
-    box-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
-    transform: translateY(-2px); /* Dá um pulinho de leve */
-}
+.cert-info-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+.cert-status { font-size: 0.7rem; font-family: 'Orbitron', sans-serif; padding: 4px 8px; border-radius: 6px; text-transform: uppercase; letter-spacing: 1px; }
+.cert-status.completed { background: rgba(138, 180, 248, 0.1); color: #8ab4f8; border: 1px solid rgba(138, 180, 248, 0.3); }
+.cert-status.in-progress { background: rgba(0, 212, 255, 0.1); color: #00d4ff; border: 1px solid rgba(0, 212, 255, 0.2); }
+.cert-date { font-size: 0.75rem; color: rgba(255, 255, 255, 0.4); font-family: 'Courier New', Courier, monospace; }
 
-/* Estilo para botão desativado (cursos em andamento) */
-.btn-ver-diploma.disabled {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.3);
-    pointer-events: none; /* Impede o clique */
-    cursor: not-allowed;
-}
-
-/* Agrupando Status e Data na direita */
-.cert-info-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end; /* Joga os textos para a direita */
-    gap: 6px;
-}
-
-.cert-status {
-    font-size: 0.7rem;
-    font-family: 'Orbitron', sans-serif;
-    padding: 4px 8px;
-    border-radius: 6px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.cert-status.completed {
-    background: rgba(138, 180, 248, 0.1); /* Fundo azul bem suave */
-    color: #8ab4f8; /* Azul claro metálico/glacial */
-    border: 1px solid rgba(138, 180, 248, 0.3); /* Borda combinando */
-}
-
-.cert-status.in-progress {
-    background: rgba(0, 212, 255, 0.1);
-    color: #00d4ff;
-    border: 1px solid rgba(0, 212, 255, 0.2);
-}
-
-.cert-date {
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.4);
-    font-family: 'Courier New', Courier, monospace;
-}
-@media (max-width: 768px) {
-.service-card {
-    width: 90% !important; /* Não deixa encostar nas bordas da tela */
-    max-width: 340px !important; /* Trava a largura máxima para ficar um retângulo bonito */
-    min-height: auto !important; /* Tira aquela altura gigante */
-    margin: 0 auto 20px auto !important; /* Centraliza na tela e dá espaço embaixo */
-  }
-
-  /* Deixa a parte da imagem do card um pouco mais fina/baixa também */
-  .service-img-wrapper {
-    height: 160px !important; 
-  }
-
-  /* 2. Matando as animações de Fade In e garantindo que tudo apareça direto */
-  /* Se você usa classes nativas ou bibliotecas (tipo AOS), isso neutraliza tudo */
-  .service-card, 
-  .cert-glass-card,
-  .box-skills,
-  [data-aos] /* Se usar a biblioteca AOS */ {
-    animation: none !important;
-    transition: none !important;
-    opacity: 1 !important; /* CRÍTICO: Garante que o card não fique invisível! */
-    transform: none !important; /* Remove qualquer movimento de entrada */
-    visibility: visible !important;
-  }
-body {
-    /* Mude o 'center' para 'right' ou 'left', dependendo de onde o astronauta está na imagem original */
-    background-position: right center !important; 
-    /* Se a imagem estiver bugando ou sumindo ao rolar, descomente a linha abaixo: */
-    /* background-attachment: scroll !important; */
-  }
-
-/* Desliga efeitos pesados de vidro e sombra para o celular não travar */
-.cert-glass-card, 
-  .service-card {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    background: rgba(20, 25, 35, 0.95) !important; 
-    
-    /* MUDANÇA AQUI: Remove a sombra e adiciona uma borda muito sutil */
-    box-shadow: none !important; 
-    border: 1px solid rgba(255, 255, 255, 0.05) !important;
-    
-    transform: none !important; 
-  }
-
-.carousel-wrap-interactive {
-    width: 100% !important;
-    left: auto !important;
-    right: auto !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-}
-  /* 1. Consertando o Nome (Desliga a animação para o texto poder pular linha) */
-  .Nome {
-    white-space: normal !important; 
-    width: 100% !important; 
-    border-right: none !important; 
-    animation: none !important; 
-    font-size: 1.8rem !important; /* Diminui um pouco a fonte para caber bonito */
-    line-height: 1.3;
-  }
-
-  /* 2. Consertando o Diploma (Empilha o botão e o status) */
-  .cert-footer {
-    flex-direction: column !important; /* Coloca um embaixo do outro */
-    align-items: flex-start !important; /* Alinha para a esquerda */
-    gap: 15px; /* Dá um respiro entre o botão e o texto */
-  }
-
-  .cert-info-right {
-    align-items: flex-start !important;
-  }
-
-  .btn-ver-diploma {
-    width: 100%; /* Faz o botão esticar na tela toda, fica ótimo pra clicar no celular */
-    justify-content: center;
-  }
-
+/* =========================================
+   SOCIAL LINKS (RODAPÉ)
+   ========================================= */
 .social-links-bottom {
     display: flex;
     justify-content: center;
@@ -1229,25 +819,76 @@ body {
 }
 
 .social-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 45px;
-    height: 45px;
-    background: rgba(255, 255, 255, 0.05); /* Fundo transparente sutil */
-    color: rgba(255, 255, 255, 0.5); /* Cor cinza clarinho inicial */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 50%; /* Deixa redondinho */
-    font-size: 1.3rem;
-    transition: all 0.3s ease;
-    text-decoration: none;
+    display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px;
+    background: rgba(255, 255, 255, 0.05); color: rgba(255, 255, 255, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%; font-size: 1.3rem; transition: all 0.3s ease; text-decoration: none;
 }
-
 .social-icon:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: #ffffff; /* Fica branco vivo no hover */
-    border-color: rgba(255, 255, 255, 0.3);
-    transform: translateY(-4px); /* Dá o pulinho pra cima */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); /* Sombra escura e elegante, sem neon */
+    background: rgba(255, 255, 255, 0.1); color: #ffffff; border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-4px); box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); 
 }
 
+/* =========================================
+   ESCONDER ELEMENTOS EM TABLETS
+   ========================================= */
+@media (max-width: 1200px) {
+    .bg-astronaut-floating { right: 5%; width: 100px; }
+}
+
+@media (max-width: 991px) {
+    .rock-3, .rock-3-5, .rock-4, .rock-5 { display: none; }
+    .floating-meteor { opacity: 0.5; }
+    .rock-1 { width: 90px !important; left: -10px; top: -30px; }
+    .rock-2 { width: 70px !important; right: -10px; bottom: -30px; }
+    .bg-station-floating, .bg-astronaut-floating { display: none; }
+}
+
+/* =========================================
+   A SALA VIP: REGRAS APENAS PARA CELULAR
+   ========================================= */
+@media (max-width: 768px) {
+    /* Ajustes do Holo Card */
+    .holo-card { padding: 25px; }
+    .holo-card::after { top: 60px; clip-path: polygon(0% 50%, 5% 50%, 8% 0%, 11% 100%, 14% 50%, 100% 50%); }
+
+    /* Ajustes dos Cards de Projetos */
+    .service-card {
+        width: 90% !important; 
+        max-width: 340px !important; 
+        min-height: auto !important; 
+        margin: 0 auto 20px auto !important; 
+    }
+    .service-img-wrapper { height: 160px !important; }
+
+    /* Mata Animações (Performance) */
+    .service-card, .cert-glass-card, .box-skills, [data-aos] {
+        animation: none !important; transition: none !important;
+        opacity: 1 !important; transform: none !important; visibility: visible !important;
+    }
+
+    body { background-position: right center !important; }
+
+    /* Desliga Vidro e Sombra pesada */
+    .cert-glass-card, .service-card {
+        backdrop-filter: none !important; -webkit-backdrop-filter: none !important;
+        background: rgba(20, 25, 35, 0.95) !important; box-shadow: none !important; 
+        border: 1px solid rgba(255, 255, 255, 0.05) !important; transform: none !important; 
+    }
+
+    /* Corrige o Bug do Carrossel */
+    .carousel-wrap-interactive {
+        width: 100% !important; left: auto !important; right: auto !important;
+        margin-left: 0 !important; margin-right: 0 !important;
+    }
+
+    /* Conserta o Nome Quebrado */
+    .Nome {
+        white-space: normal !important; width: 100% !important; border-right: none !important; 
+        animation: none !important; font-size: 1.8rem !important; line-height: 1.3;
+    }
+
+    /* Conserta o Diploma Esmagado */
+    .cert-footer { flex-direction: column !important; align-items: flex-start !important; gap: 15px; }
+    .cert-info-right { align-items: flex-start !important; }
+    .btn-ver-diploma { width: 100%; justify-content: center; }
+}
