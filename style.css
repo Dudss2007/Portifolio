@@ -1143,6 +1143,24 @@ button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
 }
 @media (max-width: 768px) {
 
+body {
+    /* Mude o 'center' para 'right' ou 'left', dependendo de onde o astronauta está na imagem original */
+    background-position: right center !important; 
+    /* Se a imagem estiver bugando ou sumindo ao rolar, descomente a linha abaixo: */
+    /* background-attachment: scroll !important; */
+  }
+
+/* Desliga efeitos pesados de vidro e sombra para o celular não travar */
+  .cert-glass-card, 
+  .service-card {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    /* Deixamos o fundo um pouco mais escuro e sólido já que não tem mais o desfoque */
+    background: rgba(20, 25, 35, 0.95) !important; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5) !important; /* Sombra bem mais simples e leve */
+    transform: none !important; /* Impede que o celular tente calcular animações 3D no scroll */
+  }
+
 .carousel-wrap-interactive {
     width: 100% !important;
     left: auto !important;
