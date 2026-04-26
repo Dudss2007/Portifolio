@@ -1,92 +1,1188 @@
-.Nome{
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 2px solid #bec4ca;
-    animation: typing 2s steps(36), 
-    cursor .4s step-end infinite alternate;
+/* =========================================
+   1. RESET E VARIÁVEIS GERAIS
+   ========================================= */
+:root {
+    /* Modo Claro (Padrão) */
+    --cor-fundo: #ffffff;
+    --cor-texto: #212529; 
+    --cor-destaque: #447794;
+    --cor-borda: #212529;
+    --cor-particula: #212529;
+    --cor-card-bg: #f8f9fa;
+    
+    /* Variáveis One For All */
+    --c1-color: #ffffff; --c2-color: #008cff; --c3-color: #ff2e2e;
+    --c4-color: #00d600; --c5-color: #ffae00; --c6-color: #cc00ff;
+    --c7-color: #ff4dd3; --c8-color: #ffee00; --c9-color: #00ff9d;
 }
 
-    @keyframes typing {
-    from { width: 0; }
-    to { width: 36ch; } 
-    }
-
-    @keyframes blink {
-    50% { border-color: transparent; }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+    background-color: var(--cor-fundo) !important;
+    color: var(--cor-texto) !important;
+    transition: background-color 0.3s, color 0.3s;
 }
+
+/* =========================================
+   2. MODO ESCURO
+   ========================================= */
+body.dark-mode {
+    --cor-fundo: #050505; 
+    --cor-texto: #f1f1f1;
+    --cor-borda: #f1f1f1;
+    --cor-particula: #ffffff; 
+    --cor-card-bg: #0d0d0d;
+}
+
+/* Força a cor do texto padrão */
+h1, h2, h3, h4, h5, h6, p, .Nome, .lead {
+    color: var(--cor-texto);
+}
+
+/* --- CORREÇÃO DO MODO CLARO --- */
+.hero-content h1,
+.hero-content h2:not(.text-info),
+.hero-content p,
+.hero-content .lead,
+#Inicio {
+    color: var(--cor-texto) !important;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.text-info, .Pinto, #Titulo_Python {
+    color: var(--cor-destaque) !important;
+}
+
+h2.border-bottom {
+    border-color: var(--cor-texto) !important;
+}
+
+/* =========================================
+   3. NAVBAR DE VIDRO
+   ========================================= */
 .navbar {
-  background: linear-gradient(90deg, #061222, #447794 ); 
-}
-.Pinto{
-    color: #447794;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 2px solid #bec4ca;
-    animation: typing 2s steps(42), 
-    cursor .4s step-end infinite alternate;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 9999;
+    background: rgba(255, 255, 255, 0.01) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: inset 0 -1px 0 0 rgba(255, 255, 255, 0.05);
+    transition: background-color 0.3s ease;
 }
 
-    @keyframes typing {
-    from { width: 0; }
-    to { width: 42ch; } 
-    }
-
-    @keyframes blink {
-    50% { border-color: transparent; }
-}
-button:hover .stars{
-display: block;
-filter: drop-shadow(0 0 10px #447794);
-}
-.card{
-    margin: 1%;
-}
-.Sobre-Mim{
-    color: #447794;
-}
-.Logo_Python{
-    margin-bottom: 5vw;
-    width: 20vw;
+/* =========================================
+   4. HERO SECTION (TOPO)
+   ========================================= */
+.hero-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 60vh; 
     height: auto;
-    animation: rodar 20s linear infinite;
+    overflow: hidden;
+    background: transparent;
+    padding-top: 120px;
+    padding-bottom: 0px;
 }
-.Texto_Python{
-   margin-bottom: 6vw;
-   
+
+.hero-video {
+    position: absolute;
+    top: -75.3%; 
+    left: 0;
+    width: 100%;
+    height: 150%; 
+    object-fit: cover;
+    z-index: 0;
+    transform: scaleY(-1);
+    opacity: 1;
+    -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 60%, black 20%, transparent 70%);
+            mask-image: radial-gradient(ellipse 70% 70% at 50% 60%, black 20%, transparent 70%);
 }
-#Inicio{
-  font-family: "Parisienne", cursive;
-  font-weight: 400;
-  font-style: normal;
+
+.hero-wrapper::after { display: none; }
+
+.hero-content {
+    position: relative;
+    z-index: 10;
 }
-#Foto_Perfil{
-    animation: entrar 1.2s ease-out forwards;
+
+/* =========================================
+   5. PERFIL
+   ========================================= */
+#Foto_Perfil {
+    width: 380px !important;
+    height: 380px !important;
+    object-fit: cover;
+    border-color: var(--cor-borda) !important;
+    animation: entrar 1.2s ease-out forwards, flutuar 5.7s ease-in-out infinite;
+    transition: transform 0.3s ease, border-color 0.3s;
+}
+
+#Foto_Perfil:hover {
+    transform: scale(1.05);
+}
+
+.Nome {
+    display: inline-block;
+    color: var(--cor-texto) !important;
+    font-size: 2.8rem; 
+    font-weight: 800;
+    line-height: 1.2;
+    white-space: nowrap; 
+    overflow: hidden;
+    border-right: 3px solid #bec4ca; 
+    animation: typing 3.5s steps(40) forwards, cursor .5s step-end infinite alternate;
+}
+
+#Inicio {
+    font-family: "Parisienne", cursive;
+    font-size: 2rem; 
+    margin-bottom: 10px;
+}
+
+.hero-content h2 {
+    font-size: 1.8rem !important;
+    font-weight: 300;
+}
+
+.hero-content .lead {
+    font-size: 1.2rem !important;
+}
+
+/* ANIMAÇÕES GERAIS */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+@keyframes blink {
+    50% { border-color: transparent; }
 }
 @keyframes entrar {
-      0% {
-        opacity: 0;
-        transform: translateX(-100px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-@keyframes rodar{
-from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
-    }
-.Bloco_Python{
-    align-items: flex-start;
+    0% { opacity: 0; transform: translateX(-100px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
-.Texto_Bloco_Python{
+@keyframes flutuar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* =========================================
+   6. SEÇÕES GERAIS E UTILS
+   ========================================= */
+#sobre-mim {
+    position: relative;
+    z-index: 2;
+    transition-delay: 0.4s;
+}
+
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(50px);
+    transition: all 1s ease-out;
+}
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+@media(prefers-reduced-motion) { .hidden { transition: none; } }
+
+/* =========================================
+   7. FUNDO ANIMADO
+   ========================================= */
+#anime-bg {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -2; overflow: hidden;
+}
+.bloco-anime {
+            position: absolute;
+            background-size: contain; background-repeat: no-repeat; background-position: center;
+            will-change: transform; /* Otimização de performance */
+        }
+@keyframes viajar {
+    0% { 
+        transform: translate(calc(var(--start-x) + var(--interact-x)), calc(var(--start-y) + var(--interact-y))) rotate(0deg); 
+        opacity: 0; 
+    }
+    10% { opacity: var(--opacidade); }
+    90% { opacity: var(--opacidade); }
+    100% { 
+        transform: translate(calc(var(--end-x) + var(--interact-x)), calc(var(--end-y) + var(--interact-y))) rotate(720deg); 
+        opacity: 0; 
+    }
+}
+.particula-espaco {
+    position: absolute; 
+    background-color: white; 
+    border-radius: 50%;
+    pointer-events: none; 
+    will-change: transform; /* Otimização para não travar */
+}
+/* =========================================
+   8. PYTHON & EXTRAS
+   ========================================= */
+.Logo_Python { width: 200px; height: auto; animation: rodar 20s linear infinite; }
+@keyframes rodar { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+.card { margin: 1%; }
+button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
+
+
+/* =========================================
+   9. CONSTELAÇÃO ONE FOR ALL
+   ========================================= */
+.ofa-transition-container {
+    position: relative; z-index: 5; padding: 70px 0; margin-bottom: 30px;
+}
+
+/* GRID */
+.ofa-constellation-grid {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(5, 50px);
+    max-width: 1000px; margin: 0 auto; position: relative;
+}
+
+.ofa-star-node {
+    position: relative; width: 50px; height: 50px;
+    display: flex; align-items: center; justify-content: center; 
+    z-index: 5;
+}
+
+/* O Núcleo */
+.star-flare {
+    position: relative;
+    width: 6px; height: 6px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px 2px #ffffff, 0 0 30px 10px var(--star-color);
+    animation: starPulse 3s infinite alternate ease-in-out;
+    z-index: 2;
+}
+
+/* Os Raios (Cruz) */
+.star-flare::before,
+.star-flare::after {
+    content: ''; position: absolute;
+    top: 50%; left: 50%;
+    background-color: #ffffff;
+    border-radius: 50%;
+    filter: blur(1px);
+    box-shadow: 0 0 15px 2px var(--star-color);
+    opacity: 0.9;
+}
+.star-flare::before { width: 60px; height: 2px; transform: translate(-50%, -50%); }
+.star-flare::after { width: 2px; height: 45px; transform: translate(-50%, -50%); }
+
+/* Aplicação Cores */
+.c1 { --star-color: var(--c1-color); } .c2 { --star-color: var(--c2-color); }
+.c3 { --star-color: var(--c3-color); } .c4 { --star-color: var(--c4-color); }
+.c5 { --star-color: var(--c5-color); } .c6 { --star-color: var(--c6-color); }
+.c7 { --star-color: var(--c7-color); } .c8 { --star-color: var(--c8-color); }
+.c9 { --star-color: var(--c9-color); }
+
+
+/* Linhas Conectoras */
+.ofa-star-node::before {
+    content: ''; 
+    position: absolute;
+    height: 3px;
+    top: 50%; left: 50%;
+    transform-origin: 0% 50%;
+    z-index: -1;
+    background: linear-gradient(90deg, var(--star-color) 0%, var(--star-color) 60%, transparent 100%);
+    box-shadow: 0 0 8px var(--star-color);
+    opacity: 0.7; pointer-events: none;
+}
+
+/* Ângulos e Tamanhos */
+.n1 { grid-column: 1; grid-row: 3; } .n1::before { width: 158px; transform: rotate(-42deg); }
+.n2 { grid-column: 2; grid-row: 1; } .n2::before { width: 233px; transform: rotate(61deg); }
+.n3 { grid-column: 3; grid-row: 5; } .n3::before { width: 163px; transform: rotate(-42deg); }
+.n4 { grid-column: 4; grid-row: 3; } .n4::before { width: 123px; transform: rotate(-24deg); }
+.n5 { grid-column: 5; grid-row: 2; } .n5::before { width: 163px; transform: rotate(42deg); }
+.n6 { grid-column: 6; grid-row: 4; } .n6::before { width: 193px; transform: rotate(-54deg); }
+.n7 { grid-column: 7; grid-row: 1; } .n7::before { width: 233px; transform: rotate(60deg); height: 4px; opacity: 1; }
+.n8 { grid-column: 8; grid-row: 5; } .n8::before { width: 193px; transform: rotate(-54deg); height: 5px; background: linear-gradient(90deg, var(--c8-color), var(--c9-color)); }
+.n9 { grid-column: 9; grid-row: 2; } .n9::before { display: none; }
+
+
+/* Animações e Extras OFA */
+.large .star-flare { transform: scale(1.3); }
+.final .star-flare { animation: starPulseFinal 2s infinite alternate; }
+
+.star-aura {
+    position: absolute; width: 180%; height: 180%;
+    border-radius: 50%;
+    background: radial-gradient(transparent 30%, var(--c9-color) 100%);
+    filter: blur(10px); opacity: 0.4;
+    animation: auraPulse 4s linear infinite alternate;
+}
+
+@keyframes starPulse {
+    0% { filter: brightness(1); scale: 1; }
+    100% { filter: brightness(1.3); scale: 1.1; }
+}
+@keyframes starPulseFinal {
+    0% { filter: brightness(1.2); scale: 1.3; }
+    100% { filter: brightness(2); scale: 1.8; }
+}
+@keyframes auraPulse {
+    0% { opacity: 0.2; scale: 0.8; }
+    100% { opacity: 0.6; scale: 1.2; }
+}
+
+/* Tooltips */
+.ofa-star-node::after {
+    content: attr(data-user); position: absolute; top: -40px;
+    font-size: 0.8rem; color: var(--star-color); opacity: 0;
+    transition: opacity 0.3s; white-space: nowrap; text-shadow: 0 0 10px var(--star-color);
+}
+.ofa-star-node:hover::after { opacity: 1; }
+.ofa-phrase-box p { color: #f1f1f1 !important; text-shadow: 0 2px 15px rgba(255,255,255,0.3); }
+
+
+
+.section-title-space {
+    font-family: 'Segoe UI', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #fff;
+    text-shadow: 0 0 15px rgba(0, 225, 255, 0.6); 
+    margin-bottom: 2rem;
+}
+.tech-icon { 
+    color: #a0c0e0;
+}
+
+.holo-card {
+    position: relative;
+    padding: 40px;
+    border-radius: 12px;
+    overflow: hidden;
+    z-index: 1;
+
+    /* Fundo Base Escuro */
+    background-color: rgba(5, 10, 20, 0.95);
+
+    /* Borda Base (Estável) */
+    border: 2px solid rgba(0, 225, 255, 0.5);
+
+    /* Sombra Base (Estável) */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+
+    /* Imagens de Fundo */
+    background-image:
+        linear-gradient(rgba(0, 225, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 225, 255, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: center;
+
+    /* ANIMAÇÃO DE GLITCH + ONDAS DE BORDA + ECG */
+    animation: 
+        holoGlitch 5s infinite linear,    /* Move o card */
+        borderWave 5s infinite linear,    /* Cria as ondas na borda */
+        ekgRun 2.5s linear infinite;      /* Linha de batimento interna */
+        
+    transition: transform 0.3s ease;
+}
+
+/* O Glitch PNG (Camada Superior) */
+.holo-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    
+    background-image: url('URL_DA_SUA_IMAGEM_GLITCH.png'); 
+    background-size: cover;
+    background-position: center;
+    mix-blend-mode: screen; 
+    z-index: 10; 
+    pointer-events: none; 
+    opacity: 0; 
+    animation: imageFlash 4s infinite linear;
+}
+
+/* Linha de Batimento (ECG) */
+.holo-card::after {
+    content: '';
+    position: absolute;
+    top: 60px; left: 0; width: 100%; height: 60px;
+    background-size: 200% 100%;
+    z-index: 1;
+    opacity: 1;
+    animation: ekgRun 2.5s linear infinite;
+    background: linear-gradient(90deg, transparent 0%, #00ffff 50%, transparent 100%);
+    clip-path: polygon(0% 50%, 10% 50%, 12% 0%, 14% 100%, 16% 50%, 100% 50%);
+}
+
+/* ANIMAÇÃO DA BORDA (SINCRONIZADA COM O GLITCH) */
+@keyframes borderWave {
+    /* 0% até 92% -> Borda calma, apenas brilhando suavemente em Ciano */
+    0%, 92% {
+        border-color: rgba(0, 225, 255, 0.5);
+        box-shadow: 
+            0 0 15px rgba(0, 225, 255, 0.2),
+            inset 0 0 10px rgba(0, 225, 255, 0.1);
+    }
+
+    /* 93% -> O "Susto": A borda se divide em Ciano e Magenta (Onda 1) */
+    93% {
+        border-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 
+            -3px 0 0 #ff00ff,  /* Sombra Magenta para esquerda */
+            3px 0 0 #00ffff,   /* Sombra Ciano para direita */
+            0 0 20px rgba(0, 225, 255, 0.6);
+    }
+
+    /* 94% -> A inversão (Onda 2) */
+    94% {
+        border-color: rgba(0, 225, 255, 0.5);
+        box-shadow: 
+            3px 0 0 #ff00ff,   /* Magenta vai para direita */
+            -3px 0 0 #ffff00,  /* Amarelo entra na esquerda */
+            0 0 30px rgba(0, 225, 255, 0.8);
+    }
+
+    /* 96% -> Estabilizando com leve aberração cromática */
+    96% {
+        border-color: rgba(0, 225, 255, 0.5);
+        box-shadow: 
+            1px 1px 0 #ff0000,
+            -1px -1px 0 #0000ff;
+    }
+
+    /* 100% -> Volta ao normal */
+    100% {
+        border-color: rgba(0, 225, 255, 0.5);
+        box-shadow: 
+            0 0 15px rgba(0, 225, 255, 0.2),
+            inset 0 0 10px rgba(0, 225, 255, 0.1);
+    }
+}
+
+/* ANIMAÇÃO DE MOVIMENTO (MANTIDA, SÓ REAJUSTADA PARA SINCRONIA) */
+@keyframes holoGlitch {
+    0%, 92%, 100% { 
+        transform: translate(0, 0) skewX(0deg); 
+        filter: none;
+    }
+    93% { 
+        transform: translate(-2px, 1px); 
+        filter: hue-rotate(90deg); /* Muda cor levemente */
+    }
+    94% { 
+        transform: translate(2px, -1px) skewX(-2deg); 
+        filter: hue-rotate(-90deg);
+    }
+    95% { 
+        transform: translate(0, 0) skewX(1deg); 
+        filter: none;
+    }
+}
+
+@keyframes ekgRun {
+    0% { background-position: 150% 0; }
+    100% { background-position: -50% 0; }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+@keyframes imageFlash {
+    0%, 92% { opacity: 0; transform: scale(1); }
+    93% { opacity: 0.7; transform: scale(1.03) translateX(-5px); filter: hue-rotate(90deg); }
+    94% { opacity: 0; }
+    96% { opacity: 0.5; transform: scale(1) translateX(5px); filter: hue-rotate(-90deg); }
+    97% { opacity: 0; }
+}
+
+/* --- TEXTOS E SCANLINES --- */
+.holo-header {
+    font-family: inherit; font-size: 1rem; color: #00ffff;
+    border-bottom: 2px solid rgba(0, 225, 255, 0.3);
+    padding-bottom: 15px; margin-bottom: 20px;
+    display: flex; align-items: center; gap: 10px;
+    font-weight: bold; text-transform: uppercase; letter-spacing: 1px;
+}
+
+.status-dot {
+    width: 10px; height: 10px; background-color: #00ffff;
+    border-radius: 50%; box-shadow: 0 0 10px #00ffff;
+    animation: blink 2s infinite;
+}
+
+.holo-body p {
+    color: #ffffff; font-family: inherit; font-size: 1.1rem;
+    line-height: 1.8; margin-bottom: 1.5rem; font-weight: 400;
+    text-shadow: 0 1px 2px black;
+}
+
+.holo-body strong { color: #00ffff; font-weight: 700; }
+
+.scanlines {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 4; overflow: hidden; opacity: 0.8;
+}
+.scanlines::before {
+    content: ''; position: absolute; top: -100%; left: 0; width: 100%; height: 200%;
+    background: repeating-linear-gradient(
+        to bottom, transparent 0%, transparent 4px,
+        rgba(0, 255, 255, 0.35) 5px, transparent 6px
+    );
+    animation: scanDown 3s linear infinite;
+}
+@keyframes scanDown {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(50%); }
+}
+
+
+.tech-glass-card {
+    position: relative;
+    z-index: 2;
+    
+    
+    background: rgba(255, 255, 255, 0.03); 
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5); 
+    
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.2); 
+    border-left: 1px solid rgba(255, 255, 255, 0.2); 
+    
+    border-radius: 20px;
+    padding: 25px;
+    height: 100%;
+  
+}
+
+/* Cabeçalho do Card */
+.tech-header {
     display: flex;
-    flex-direction: column; /* título em cima, texto embaixo */
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.tech-header i {
+    font-size: 1.5rem;
+    color: #f0f0f0; /* Mesma cor do seu texto */
+    margin-right: 12px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+.tech-header h4 {
+    margin: 0;
+    color: #f0f0f0;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+/* Grid e Itens */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+    gap: 15px;
+}
+
+.tech-item {
+    /* Mantendo a coerência com o vidro */
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 10px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1/1;
+    transition: 0.3s;
+}
+
+.tech-item i {
+    font-size: 2rem;
+    margin-bottom: 5px;
+    color: #f0f0f0;
+    opacity: 0.8;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));
+    transition: 0.3s;
+}
+
+.tech-item span {
+    font-size: 0.75rem;
+    color: #f0f0f0;
+    opacity: 0.8;
+    font-weight: 500;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+.tech-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.tech-item:hover i {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.tech-item:hover span {
+    opacity: 1;
+}
+/* Mobile */
+@media (max-width: 768px) {
+    .holo-card { padding: 25px; }
+    .holo-card::after { 
+        top: 60px; 
+        clip-path: polygon(0% 50%, 5% 50%, 8% 0%, 11% 100%, 14% 50%, 100% 50%);
+    }
+}
+
+.section-title-space {
+    color: #ffffff; 
+    text-shadow: 0 0 20px rgba(180, 200, 255, 0.4); 
+}
+
+/* CARD VIDRO LÍQUIDO (SEM HOVER) */
+.liquid-glass-card {
+    position: relative;
+    padding: 40px;
+    border-radius: 20px;
+    z-index: 2; /* Texto fica ACIMA dos meteoros */
+    background: rgba(255, 255, 255, 0.03); 
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5); 
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.2); 
+    border-left: 1px solid rgba(255, 255, 255, 0.2); 
+}
+
+/* Conteúdo */
+.glass-content p {
+    color: #f0f0f0;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+.text-highlight {
+    color: #b0d0ff; 
+    text-shadow: 0 0 8px rgba(160, 190, 255, 0.3);
+}
+/* --- METEOROS FLUTUANTES --- */
+/* --- METEOROS FLUTUANTES (TAMANHOS AJUSTADOS) --- */
+.floating-meteor {
+    position: absolute;
+    z-index: 1; /* Fica ATRÁS do vidro */
+    pointer-events: none;
+    opacity: 0.9;
+    filter: drop-shadow(0 0 15px rgba(0,0,0,0.8));
+    animation: floatRock 6s ease-in-out infinite alternate;
+}
+
+/* Meteoro 1 (Topo Esquerdo) */
+.rock-1 {
+    width: 190px !important;
+    top: -50px;
+    left: -40px;
+    transform: rotate(15deg);
+}
+
+/* Meteoro 2 (Baixo Direita) */
+.rock-2 {
+    width: niggerpx !important;
+    bottom: -40px;
+    right: 0px;
+    animation-delay: -3s;
+    transform: rotate(-10deg);
+}
+
+/* Meteoro 3 (Lateral Direita) */
+.rock-3, .rock-3-5 {
+    /* ... (Mantenha as outras propriedades: position, z-index, height, pointer-events, animation) ... */
+    position: absolute !important;
+    z-index: -1 !important;
+    height: auto !important;
+    pointer-events: none;
+    animation: floatRock 7s ease-in-out infinite alternate;
+
+    /* APLICAÇÃO DO FILTRO PARA CLAREAR */
+    filter: brightness(0.9) contrast(0.9); /* Aumenta o brilho e diminui um pouco o contraste */
+    opacity: 0.9; /* Mantém a opacidade se desejar */
+}
+/* --- Metade da Esquerda (Pedra 3) --- */
+.rock-3 {
+    width: 220px !important;      /* Tamanho ajustado para equilibrar com as outras */
+    height: auto !important;     /* ISSO AQUI impede a imagem de esticar e virar um macarrão */
+    top: 40%;                    /* Altura na tela */
+    right: -40px;                 /* Empurra para a esquerda para abrir espaço para a outra metade */
+    animation-delay: -4s;        /* Mantendo o padrão das suas outras pedras */
+}
+
+/* Meteoro 3.5 (Lateral Direita - Metade Direita) */
+.rock-3-5 {
+    width: 95px !important;
+    height: auto !important;     /* Previne o esticamento */
+    top: 41%;                    /* 1% mais baixo para dar o aspecto de quebra irregular */
+    right: -20px;                /* Posicionada encostando na metade esquerda */
+    animation-delay: -2s;      /* Delay quase igual à rock-3, para elas flutuarem "juntas" mas se mexendo um pouco entre si */
+}
+/* Meteoro 4 (Topo Direita) -> AUMENTADO */
+.rock-4 {
+    width: 250px !important; /* Aumentei de 70px para 110px */
+    top: -100px; /* Subi um pouco para não bater no texto */
+    right: 5%;
+    animation-delay: -2s;
+    transform: rotate(45deg);
+}
+
+/* Meteoro 5 (Baixo Esquerda) -> AUMENTADO */
+.rock-5 {
+    width: 200px !important; /* Aumentei de 90px para 140px */
+    bottom: -60px; /* Desci um pouco para não bater no texto */
+    left: -1%;
+    animation-delay: -6s;
+    transform: rotate(-20deg);
+}
+
+/* Animação */
+@keyframes floatRock {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-25px); }
+}
+
+/* Mobile: Esconde os laterais para não quebrar a tela */
+@media (max-width: 992px) {
+    .rock-3, .rock-3-5, .rock-4, .rock-5 { display: none; }
+    .floating-meteor { opacity: 0.5; }
+    .rock-1 { width: 90px !important; left: -10px; top: -30px; }
+    .rock-2 { width: 70px !important; right: -10px; bottom: -30px; }
+}
+.liquid-glass-card {
+    background: rgba(255, 255, 255, 0.02);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.15); 
+    border-left: 1px solid rgba(255, 255, 255, 0.15); 
+}
+.bg-station-floating {
+    position: absolute;
+    top: 25%;           /* Centraliza verticalmente em relação à row */
+    transform: translateY(-50%); /* Ajuste fino da centralização */
+    right: -18%;         /* Posiciona à direita. Ajuste esse valor se quiser mais para dentro ou fora */
+    width: 45%;         /* Tamanho relativo ao container */
+    max-width: 750px;   /* Tamanho máximo para não ficar gigante em telas grandes */
+    z-index: 0;         /* Garante que fique ATRÁS dos cards */
+    pointer-events: none; /* Ignora cliques do mouse */
+    animation: flutuar-estacao 17s ease-in-out infinite; /* Animação de flutuar */
+}
+
+/* Animação suave de flutuação */
+@keyframes flutuar-estacao {
+    0%, 100% { transform: translateY(-50%) translateY(0px); }
+    50% { transform: translateY(-50%) translateY(-30px); }
+}
+
+/* IMPORTANTE: Esconder em telas menores (tablets verticais e celulares) */
+/* Em telas pequenas não há espaço vazio à direita, então a imagem atrapalharia */
+@media (max-width: 991px) {
+    .bg-station-floating {
+        display: none;
+    }
+}
+
+/* Garantir que os cards fiquem na frente (caso seu CSS antigo não tenha isso) */
+.tech-glass-card {
+    position: relative;
+    z-index: 2;
+}
+.bg-astronaut-floating {
+    position: absolute;
+    top: 28%;             /* Altura inicial (mais alto que a nave) */
+    right: -6.7%;           /* Distância da direita (para ficar ao lado da nave) */
+    width: 120px;         /* Tamanho do astronauta */
+    z-index: 0;           /* Fica atrás dos cards */
+    pointer-events: none;
+    opacity: 0.9;
+    animation: flutuar-astro 12s ease-in-out infinite alternate;
+}
+
+/* Animação de "Spacewalk" (Flutua e gira levemente) */
+@keyframes flutuar-astro {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-30px); /* Sobe e gira */
+    }
+}
+
+/* Responsividade: Esconder em telas menores para não atrapalhar o texto */
+@media (max-width: 1200px) {
+    .bg-astronaut-floating {
+        right: 5%; /* Aproxima mais da borda em telas médias */
+        width: 100px;
+    }
+}
+
+@media (max-width: 991px) {
+    .bg-astronaut-floating {
+        display: none; /* Some em tablets/celulares */
+    }
+}
+/* =========================================
+   CARROSSEL INFINITO & CARDS DE SERVIÇO
+========================================= */
+
+.carousel-wrap-interactive {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  /* Máscara escura nas bordas pra dar fade */
+  mask-image: linear-gradient(to right, transparent 2%, black 15%, black 85%, transparent 98%);
+  -webkit-mask-image: linear-gradient(to right, transparent 2%, black 15%, black 85%, transparent 98%);
+}
+
+.carousel-track-interactive {
+  display: flex;
+  gap: 30px;
+  padding: 20px 0;
+  overflow-x: auto;
+  scroll-behavior: auto; /* O JS controla a suavidade */
+  /* Esconde a barra de rolagem nativa */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.carousel-track-interactive::-webkit-scrollbar {
+  display: none;
+}
+
+/* =========================================
+   ESTILO DAS SETAS
+========================================= */
+.carousel-arrow {
+  position: absolute;
+  z-index: 10;
+  background: rgba(20, 25, 35, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+.carousel-arrow:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #fff;
+  transform: scale(1.1);
+}
+
+.left-arrow { left: 5vw; }
+.right-arrow { right: 5vw; }
+
+/* -----------------------------------------
+   O CARD (MANTIDO SEU LIQUID GLASS INTACTO)
+----------------------------------------- */
+.service-card {
+  flex-shrink: 0; /* Impede os cards de esmagarem uns aos outros */
+  text-decoration: none;
+  width: 380px;
+  background: rgba(20, 25, 35, 0.45);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.service-img-wrapper {
+  width: 100%; height: 140px; overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.service-img-wrapper img {
+  width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;
+}
+.service-card:hover .service-img-wrapper img { transform: scale(1.05); }
+
+.service-content {
+  padding: 20px; display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.service-icon {
+  width: 28px; height: 28px; color: #ffffff; margin-bottom: 12px;
+}
+.service-title {
+  font-family: 'Orbitron', sans-serif; color: #ffffff; font-size: 1.1rem;
+  font-weight: 600; letter-spacing: 1px; margin: 0 0 10px 0;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.service-desc {
+  font-family: Arial, sans-serif; color: rgba(255, 255, 255, 0.75);
+  font-size: 0.85rem; line-height: 1.4; margin: 0 0 18px 0;
+}
+.service-badge {
+  background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff; padding: 6px 16px; border-radius: 20px; font-size: 0.75rem;
+  font-family: 'Orbitron', sans-serif; letter-spacing: 1px; text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+.service-card:hover .service-badge {
+  background: rgba(255, 255, 255, 0.15); border-color: #ffffff;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.2); color: #ffffff;
+}
+/* =========================================
+   FORMAÇÃO E CERTIFICAÇÕES (LIQUID GLASS)
+========================================= */
+
+.cert-glass-card {
+    background: rgba(20, 25, 35, 0.45);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 30px 25px;
+    height: 100%;
+    display: flex;
+    /* MUDANÇA: 'stretch' faz o interior do card esticar até o fundo */
+    align-items: stretch; 
+    gap: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+.cert-glass-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.2); 
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7); 
+}
+
+/* Ícone na lateral esquerda do card */
+.cert-icon-wrapper {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 55px;
+    height: 55px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #ffffff;
+    flex-shrink: 0;
+    transition: 0.3s ease;
+    /* MUDANÇA: Garante que o ícone fique preso no topo e não estique */
+    align-self: flex-start; 
+}
+
+.cert-glass-card:hover .cert-icon-wrapper {
+    background: rgba(0, 212, 255, 0.1);
+    color: #00e5ff; /* Acende um azul ciano sutil no ícone quando passa o mouse */
+    border-color: rgba(0, 212, 255, 0.3);
+}
+
+.cert-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* MUDANÇA: Força o conteúdo a ocupar 100% da altura do card */
+    height: 100%; 
+}
+.cert-title {
+    font-family: 'Orbitron', sans-serif;
+    color: #ffffff;
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    line-height: 1.4;
+}
+
+.cert-inst {
+    font-family: Arial, sans-serif;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Rodapé do card com as tags */
+.cert-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Alinha os itens pela base */
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 15px;
+    width: 100%;
+}
+
+/* O Botão de Ver Diploma */
+.btn-ver-diploma {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0, 212, 255, 0.05);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    color: #00d4ff;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none; /* Tira o sublinhado do link */
+    transition: all 0.3s ease;
+}
+
+.btn-ver-diploma:hover {
+    background: rgba(0, 212, 255, 0.2);
+    color: #fff;
+    border-color: #00d4ff;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
+    transform: translateY(-2px); /* Dá um pulinho de leve */
+}
+
+/* Estilo para botão desativado (cursos em andamento) */
+.btn-ver-diploma.disabled {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.3);
+    pointer-events: none; /* Impede o clique */
+    cursor: not-allowed;
+}
+
+/* Agrupando Status e Data na direita */
+.cert-info-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Joga os textos para a direita */
+    gap: 6px;
+}
+
+.cert-status {
+    font-size: 0.7rem;
+    font-family: 'Orbitron', sans-serif;
+    padding: 4px 8px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cert-status.completed {
+    background: rgba(138, 180, 248, 0.1); /* Fundo azul bem suave */
+    color: #8ab4f8; /* Azul claro metálico/glacial */
+    border: 1px solid rgba(138, 180, 248, 0.3); /* Borda combinando */
+}
+
+.cert-status.in-progress {
+    background: rgba(0, 212, 255, 0.1);
+    color: #00d4ff;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.cert-date {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    font-family: 'Courier New', Courier, monospace;
+}
+@media (max-width: 768px) {
+  
+  /* 1. Consertando o Nome (Desliga a animação para o texto poder pular linha) */
+  .Nome {
+    white-space: normal !important; 
+    width: 100% !important; 
+    border-right: none !important; 
+    animation: none !important; 
+    font-size: 1.8rem !important; /* Diminui um pouco a fonte para caber bonito */
+    line-height: 1.3;
   }
-#Titulo_Python{
-    color: #447794;
+
+  /* 2. Consertando o Diploma (Empilha o botão e o status) */
+  .cert-footer {
+    flex-direction: column !important; /* Coloca um embaixo do outro */
+    align-items: flex-start !important; /* Alinha para a esquerda */
+    gap: 15px; /* Dá um respiro entre o botão e o texto */
+  }
+
+  .cert-info-right {
+    align-items: flex-start !important;
+  }
+
+  .btn-ver-diploma {
+    width: 100%; /* Faz o botão esticar na tela toda, fica ótimo pra clicar no celular */
+    justify-content: center;
+  }
+}
+.social-links-bottom {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.05); /* Fundo transparente sutil */
+    color: rgba(255, 255, 255, 0.5); /* Cor cinza clarinho inicial */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%; /* Deixa redondinho */
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff; /* Fica branco vivo no hover */
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-4px); /* Dá o pulinho pra cima */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); /* Sombra escura e elegante, sem neon */
 }

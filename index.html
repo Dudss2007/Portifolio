@@ -8,83 +8,544 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
-
-
-<!--[if gte mso 9]><xml>
-<mso:CustomDocumentProperties>
-<mso:_ApprovalStatus msdt:dt="string">0</mso:_ApprovalStatus>
-<mso:_ApprovalAssignedTo msdt:dt="string"></mso:_ApprovalAssignedTo>
-<mso:_ApprovalRespondedBy msdt:dt="string"></mso:_ApprovalRespondedBy>
-</mso:CustomDocumentProperties>
-</xml><![endif]-->
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 </head>
-<body id="background">
+<body id="background" class="dark-mode">
+    
+    <div id="anime-bg"></div>
+
     <header>
-        <nav class="navbar navbar-dark bg-dark">
-            <div class="container">
+       <nav class="navbar navbar-dark">
+                <div class="container">
                 <a class="navbar-brand fs-2" href="#">
-                    <i class="bi bi-code-slash text-info me-2" alt="Cabeçalho"></i> Portfólio 
+                    <i class="bi bi-code-slash text-info me-2"></i> Portfólio 
                 </a>
                 </div>
         </nav>
     </header>
-    <section class="container py-5 mt-5" id="introducao">
-        <div class="row align-items-center">
-            
-            <div class="col-lg-4 col-md-5 mb-4 text-center text-md-start">
-                <img id="Foto_Perfil" class="img-fluid rounded-circle profile-img-percent border border-5 border-dark shadow-lg" 
-                     src="https://i.pinimg.com/736x/fe/3b/8b/fe3b8b34b410317b3b470c1033ba6514.jpg" 
-                     alt="Foto de Perfil com Tema Bleach">
-            </div>
-            <div class="col-lg-8 col-md-7">
-                <p class="display-6 mb-0"id="Inicio">Olá, eu sou</p>
-                <h1 class="Nome" class="display-3 fw-bold mb-3">Eduardo Joaquim dos Santos Cavalcante</h1>
-                <h2 class="Pinto" class="text-info mb-4">Programador Full Stacker | Python & WebDev</h2>
-                <p class="lead">
-                    Bem-vindo ao meu portfólio. Meu foco é em soluções organizadas e responsivas, utilizando HTML, CSS e Bootstrap para estruturar interfaces limpas e eficientes. Minha especialidade e lógica reside no Back-End com Python.
-                </p>
-                <p class="lead">
-                    Aqui você encontrará minhas principais linguagens, projetos desenvolvidos e informações de contato.
-                </p>
-            </div>
-        </div>
-    </section>
-    <section class="container py-5" id="sobre-mim">
-        <h2 class="text-center mb-5 border-bottom border-3 pb-2">Sobre Mim</h2>
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <p class="fs-5">
-                    Programador Júnior de 18 anos, possuo formação inicial em Python, que utilizo como linguagem principal no desenvolvimento de soluções. Meu objetivo de carreira é me consolidar como um desenvolvedor Full Stack, atuando tanto no Front-end quanto no Back-end.
-                </p>
-                <p class="fs-5">
-                    Busco ativamente oportunidades para aplicar e expandir minhas habilidades em desenvolvimento Web, onde utilizo a versatilidade e a clareza da lógica Python para construir sistemas robustos e eficientes.
-                </p>
-                <p class="fs-5">
-                    Estou em constante aprimoramento, focado em adquirir novos conhecimentos e tecnologias para entregar soluções completas e de alta qualidade!
-                </p>
-                <div class="text-center mt-4">
+
+    <div class="hero-wrapper">
+        
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="video/blackhole.webm" type="video/webm">
+            <source src="blackhole.webm" type="video/webm">
+        </video>
+
+        <div class="hero-content container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-4 col-md-5 mb-4 text-center">
+                    <img id="Foto_Perfil" 
+                         class="img-fluid rounded-circle border border-3 shadow-lg" 
+                         src="Icons/eu.png" 
+                         style="width: 250px; height: 250px; object-fit: cover;"
+                         alt="Foto de Perfil">
+                </div>
+                
+                <div class="col-lg-8 col-md-7 text-center text-md-start">
+                    <p class="display-6 mb-0 text-white" id="Inicio" style="font-family: 'Parisienne', cursive;">Olá, eu sou</p>
+                    <h1 class="Nome mb-2 text-white fw-bold">Eduardo Joaquim dos Santos Cavalcante</h1>
+                    <h2 class="text-info mb-4">Programador Full Stack | WebDev</h2>
+                    <p class="lead text-light opacity-75">
+                        Bem-vindo ao meu portfólio!! Aqui você encontrará minhas experiências, projetos desenvolvidos, linguagens que uso no dia a dia e informações de contato.
+                    </p>
                 </div>
             </div>
         </div>
-    </section>
-    <section class="container py-5">
-        <div class="Bloco_Python">
-    <h2 class="text-center mb-5 border-bottom border-3 pb-2">Linguagens Principais</h2>
-    <div class="d-flex flex-column flex-md-row align-items-center gap-3">
-    <img class="img-fluid Logo_Python" src="Icons/python_logo.png" alt='Imagem_Python'>
-    <div class="conteudo-python">
-        <h2 class="mb-3" id="Titulo_Python">Python</h2>
-        <p class="fs-5">
-          Meu foco principal é Python, principalmente por sua versatilidade e facilidade para criar sites e aplicações web.
-          Gosto de usar essa linguagem para transformar ideias em projetos concretos que realmente funcionam.
-          Trabalhar com Python me permite explorar a lógica de programação de forma criativa, experimentar diferentes soluções e construir sistemas que sejam práticos e funcionais.
-          Cada projeto é uma oportunidade de aprender coisas novas, testar abordagens diferentes e ver minhas ideias ganhando vida na web.
-          Para mim, programar com Python é mais do que escrever código: é criar algo que faça sentido e tenha impacto real.
-        </p>
-      </div>
     </div>
-</div>
+
+<section class="container py-5 hidden" id="sobre-mim">
+    <div class="text-center mb-5">
+        <h2 class="section-title-space">
+            <span class="tech-icon"><i class="bi bi-person-bounding-box"></i></span> 
+            Sobre Mim
+        </h2>
+    </div>
+
+    <div class="row justify-content-center position-relative">
+        
+        <img src="Icons/meteoro4.webp" class="floating-meteor rock-1" alt="Meteoro">
+       
+        <img src="Icons/meteoro3.webp" alt="Meteoro" class="floating-meteor rock-3">
+        <img src="Icons/meteoro3-5.webp" alt="Meteoro" class="floating-meteor rock-3-5">
+        
+        <img src="Icons/meteoro.webp" class="floating-meteor rock-4" alt="Meteoro">
+        <img src="Icons/meteoro4.webp" class="floating-meteor rock-5" alt="Meteoro">
+
+        <div class="col-lg-10">
+            <div class="liquid-glass-card">
+                <div class="glass-content">
+                    <p>
+                        <strong class="text-highlight">> Sobre:</strong> Programador Júnior, 18 anos. <br>
+                        Sou um Desenvolvedor Full Stack. utilizando o Python como minha linguagem inicial. Desde então, expandi meu conhecimento desenvolvendo projetos, com destaque para a criação de sistemas de E-commerce. Tenho também experiência prática em trabalho em equipe, colaborando com outros profissionais para um projeto.
+                    </p>
+                    <p>
+                        <strong class="text-highlight">> Missão:</strong>Busco ativamente melhorar minha experiência como desenvolvedor, além de ter bastante vontade de aprender novas linguagens que possam me ajudar no meu dia a dia.
+                    <p>
+                        <strong class="text-highlight">> Cooperação:</strong>Experiência prática com <strong>Git e GitHub</strong> e ja participei de projetos onde necessitavam de trabalho em equipe.
+                    </p>
+                    <p class="mb-0">
+                        <strong class="text-highlight">> Status Atual:</strong>Estudante e praticando programação com projetos pessoais.
+            </div>
+        </div>
+    </div>
 </section>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<section class="container py-5 hidden" id="habilidades">
+    <div class="text-center mb-5">
+    <h2 class="section-title-space">
+        <span class="tech-icon"><i class="bi bi-code-slash"></i></span>
+        Linguagens/Conhecimentos
+    </h2>
+</div>
+    
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="tech-glass-card">
+                <div class="tech-header">
+                    <i class="bi bi-code-square"></i>
+                    <h4>Front-end</h4>
+                </div>
+                <div class="tech-grid">
+                    <div class="tech-item"><i class="devicon-html5-plain"></i><span>HTML5</span></div>
+                    <div class="tech-item"><i class="devicon-css3-plain"></i><span>CSS3</span></div>
+                    <div class="tech-item"><i class="devicon-javascript-plain"></i><span>JS</span></div>
+                    <div class="tech-item"><i class="devicon-bootstrap-plain"></i><span>Bootstrap</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="tech-glass-card">
+                <div class="tech-header">
+                    <i class="bi bi-hdd-network"></i>
+                    <h4>Back-end</h4>
+                </div>
+                <div class="tech-grid">
+                    <div class="tech-item"><i class="devicon-python-plain"></i><span>Python</span></div>
+                    <div class="tech-item"><i class="devicon-django-plain"></i><span>Django</span></div>
+                    <div class="tech-item"><i class="devicon-nodejs-plain"></i><span>Node.js</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="tech-glass-card">
+                <div class="tech-header">
+                    <i class="bi bi-database-fill"></i>
+                    <h4>Data</h4>
+                </div>
+                <div class="tech-grid">
+                    <div class="tech-item"><i class="devicon-mysql-plain"></i><span>MySQL</span></div>
+                    <div class="tech-item"><i class="devicon-sqlite-plain"></i><span>SQLite</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="tech-glass-card">
+                <div class="tech-header">
+                    <i class="bi bi-tools"></i>
+                    <h4>Ferramentas</h4>
+                </div>
+                <div class="tech-grid">
+                    <div class="tech-item"><i class="devicon-git-plain"></i><span>Git</span></div>
+                    <div class="tech-item"><i class="devicon-github-original"></i><span>GitHub</span></div>
+                    <div class="tech-item"><i class="bi bi-terminal-fill"></i><span>Terminal</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            <img src="Icons/navem_espacial.webp" alt="Estação Espacial" class="bg-station-floating">
+            <img src="Icons/homemzinho1.webp" alt="Astronauta" class="bg-astronaut-floating">
+<section class="container py-5 hidden" id="habilidades">
+<div class="text-center mb-5">
+    <h2 class="section-title-space">
+        <span class="tech-icon"><i class="bi bi-rocket-takeoff"></i></span>
+        Projetos
+    </h2>
+</div>
+
+    <div class="carousel-wrap-interactive">
+        
+        <button class="carousel-arrow left-arrow" onclick="moverCarrossel(-410)">&#10094;</button>
+
+        <div class="carousel-track-interactive" id="track-projetos">
+            
+            <a href="#" target="_blank" class="service-card">
+                <div class="service-img-wrapper">
+                    <img src="Icons/battledex.jpg" alt="Criação de Sites">
+                </div>
+                <div class="service-content">
+                    <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                    <h3 class="service-title">BattleDex</h3>
+                    <p class="service-desc">Um simulador de batalhas e construção de times sobre pokemon, projeto feito por diversão, feito inteiramente com Django, python e a PokeApi</p>
+                    <span class="service-badge">Repositório Github</span>
+                </div>
+            </a>
+
+            <a href="#" target="_blank" class="service-card">
+                <div class="service-img-wrapper">
+                    <img src="Icons/port111.jpg" alt="Sistemas"class="img-quadrada">
+                </div>
+                <div class="service-content">
+                    <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                    <h3 class="service-title">CoolKeys</h3>
+                    <p class="service-desc">E-Commerce funcional com sistema de login e dashboard de admin, feito com DJANGO, PYTHON, HTML e CSS</p>
+                    <span class="service-badge">Repositório Github</span>
+                </div>
+            </a>
+
+            <a href="#" target="_blank" class="service-card">
+                <div class="service-img-wrapper">
+                    <img src="Icons/indisponivel.webp" alt="E-commerce" class="img-quadrada">
+                </div>
+                <div class="service-content">
+                    <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <h3 class="service-title">Indisponível</h3>
+                    <p class="service-desc">Em manutenção</p>
+                    <span class="service-badge">. . .</span>
+                </div>
+            </a>
+
+            <a href="#" target="_blank" class="service-card">
+                <div class="service-img-wrapper">
+                    <img src="Icons/indisponivel.webp" alt="UX/UI" class="img-quadrada">
+                </div>
+                <div class="service-content">
+                    <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                    </svg>
+                    <h3 class="service-title">Indisponível</h3>
+                    <p class="service-desc">Em manutenção</p>
+                    <span class="service-badge">. . .</span>
+                </div>
+            </a>
+
+        </div>
+
+        <button class="carousel-arrow right-arrow" onclick="moverCarrossel(410)">&#10095;</button>
+    </div>
+</section>
+
+<section class="container pb-5 hidden" id="certificacoes">
+    <div class="text-center mb-5">
+        <h2 class="section-title-space">
+            <span class="tech-icon"><i class="bi bi-mortarboard"></i></span> 
+            Formação e Certificações
+        </h2>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+        
+
+        <div class="col-lg-4 col-md-6">
+            <div class="cert-glass-card">
+                <div class="cert-icon-wrapper">
+                    <i class="bi bi-award"></i>
+                </div>
+                <div class="cert-content">
+                    <h3 class="cert-title">Python Full Stack Web Developer</h3>
+                    <p class="cert-inst">SENAC</p>
+                    
+                    <div class="cert-footer">
+                        <a href="pdfs/DiplomaSenacPython.pdf" target="_blank" class="btn-ver-diploma">
+                            <i class="bi bi-box-arrow-up-right"></i> Ver Diploma
+                        </a>
+                        <div class="cert-info-right">
+                            <span class="cert-status completed">Concluído</span>
+                            <span class="cert-date">2025</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<div class="social-links-bottom pb-5 pt-3">
+    <a href="https://github.com/Dudss2007" target="_blank" class="social-icon" aria-label="GitHub">
+        <i class="bi bi-github"></i>
+    </a>
+    
+    <a href="https://www.linkedin.com/in/eduardo-j-cavalcante/" target="_blank" class="social-icon" aria-label="LinkedIn">
+        <i class="bi bi-linkedin"></i>
+    </a>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+        /* --- LÓGICA DO SCROLL REVEAL --- */
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        });
+
+        const hiddenElements = document.querySelectorAll('.hidden');
+        hiddenElements.forEach((el) => observer.observe(el));
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const track = document.getElementById('track-projetos');
+    
+    // Clona os itens automaticamente 3 vezes
+    const itemsHTML = track.innerHTML;
+    track.innerHTML += itemsHTML + itemsHTML + itemsHTML;
+
+    let isPaused = false;
+    
+    // AGORA SIM VOCÊ PODE USAR NÚMEROS MINÚSCULOS!
+    // 0.15 é bem lento. 0.2 ou 0.3 fica num meio termo legal.
+    let speed = 0.5; 
+    
+    // Variável "fantasma" que guarda a posição com casas decimais
+    let scrollPos = track.scrollLeft; 
+
+    function autoScroll() {
+        if (!isPaused) {
+            scrollPos += speed;
+            track.scrollLeft = scrollPos; // Aplica o número quebrado
+            
+            // Reseta o loop perfeitamente
+            if (scrollPos >= track.scrollWidth / 4) {
+                scrollPos = 0;
+                track.scrollLeft = 0;
+            }
+        } else {
+            // Se o carrossel estiver pausado (mouse em cima) e você clicar na seta, 
+            // ele atualiza a variável fantasma para não dar um "pulo" quando o mouse sair.
+            scrollPos = track.scrollLeft;
+        }
+        requestAnimationFrame(autoScroll);
+    }
+    autoScroll();
+
+    // Pausa com o hover
+    const wrap = document.querySelector('.carousel-wrap-interactive');
+    wrap.addEventListener('mouseenter', () => isPaused = true);
+    
+    wrap.addEventListener('mouseleave', () => {
+        isPaused = false;
+        // Atualiza a posição exata de onde parou antes de voltar a rodar
+        scrollPos = track.scrollLeft; 
+    });
+});
+
+function moverCarrossel(distancia) {
+    const track = document.getElementById('track-projetos');
+    track.scrollBy({ left: distancia, behavior: 'smooth' });
+}
+</script>
+<script>
+        const container = document.getElementById('anime-bg');
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+
+        // --- PARTE 1: ÍCONES QUE MUDAM DE DIREÇÃO ---
+        const iconsList = ['Icons/code1.webp', 'Icons/code2.webp', 'Icons/code1.webp']; // Suas imagens
+        const numIcons = 15;
+        const iconsArray = [];
+
+        class Icone {
+            constructor() {
+                this.element = document.createElement('div');
+                this.element.classList.add('bloco-anime');
+                
+                // Imagem aleatória
+                const img = iconsList[Math.floor(Math.random() * iconsList.length)];
+                this.element.style.backgroundImage = `url('${img}')`;
+                
+                // Tamanho e Opacidade
+                this.size = Math.random() * 100 + 60; // Entre 60 e 140
+                this.element.style.width = `${this.size}px`;
+                this.element.style.height = `${this.size}px`;
+                this.element.style.opacity = Math.random() * 0.4 + 0.2;
+
+                container.appendChild(this.element);
+
+                // Posição Inicial (Aleatória na tela)
+                this.x = Math.random() * window.innerWidth;
+                this.y = Math.random() * window.innerHeight;
+
+                // VELOCIDADE (VX e VY) - Isso define a direção e rapidez
+                // Valores entre -1.5 e 1.5 pixels por frame
+                this.vx = (Math.random() - 0.5) * 3; 
+                this.vy = (Math.random() - 0.5) * 3;
+
+                // Rotação
+                this.angle = 0;
+                this.spin = (Math.random() - 0.5) * 2;
+            }
+
+            update(mouseX, mouseY) {
+                // 1. Calcular distância do mouse
+                const dx = this.x - mouseX; // Distância X
+                const dy = this.y - mouseY; // Distância Y
+                const dist = Math.sqrt(dx*dx + dy*dy); // Pitágoras
+                const raioInfinito = 250;
+
+                // 2. SE O MOUSE ESTIVER PERTO: MUDA A VELOCIDADE (DEFLEXÃO)
+                if (dist < raioInfinito) {
+                    const angle = Math.atan2(dy, dx);
+                    
+                    
+                    // Quanto mais perto (dist menor), maior a força de repulsão
+                    // É quase impossível tocar o centro (mouse)
+                    const forca = (raioInfinito - dist) / raioInfinito; 
+                    const repulsao = forca * 15; // Multiplicador de força (Mugen)
+
+                    // Aplica a força na velocidade atual
+                    this.vx += Math.cos(angle) * repulsao;
+                    this.vy += Math.sin(angle) * repulsao;
+                }
+
+                // 3. Limitar velocidade máxima (para não sair voando na velocidade da luz)
+                const speed = Math.sqrt(this.vx*this.vx + this.vy*this.vy);
+                const maxSpeed = 0.8;
+                if (speed > maxSpeed) {
+                    this.vx = (this.vx / speed) * maxSpeed;
+                    this.vy = (this.vy / speed) * maxSpeed;
+                }
+
+                // 4. Mover o objeto (Atualizar Posição)
+                this.x += this.vx;
+                this.y += this.vy;
+                this.angle += this.spin;
+
+                // 5. Teleporte (Pac-Man): Se sair da tela, volta do outro lado
+                if (this.x > window.innerWidth + 100) this.x = -100;
+                if (this.x < -100) this.x = window.innerWidth + 100;
+                if (this.y > window.innerHeight + 100) this.y = -100;
+                if (this.y < -100) this.y = window.innerHeight + 100;
+
+                // 6. Aplicar no HTML
+                this.element.style.transform = `translate(${this.x}px, ${this.y}px) rotate(${this.angle}deg)`;
+            }
+        }
+
+        // Criar os ícones
+        for(let i=0; i<numIcons; i++) {
+            iconsArray.push(new Icone());
+        }
+
+        // --- PARTE 2: ESTRELAS DE FUNDO (VISUAL APENAS) ---
+        // Mantive sua lógica de estrelas para preencher o fundo
+        const starsArray = [];
+        const starCount = 550; // Mantive sua quantidade
+
+        class Estrela {
+            constructor() {
+                this.element = document.createElement('div');
+                this.element.classList.add('particula-espaco');
+                
+                // Tamanho e Opacidade
+                const size = Math.random() * 3;
+                this.element.style.width = size + 'px'; 
+                this.element.style.height = size + 'px';
+                this.element.style.opacity = Math.random(); 
+                
+                // IMPORTANTE: Usa 'container' (ou 'containerBg' se for o nome da sua variável principal)
+                if (typeof container !== 'undefined') {
+                    container.appendChild(this.element);
+                } else if (typeof containerBg !== 'undefined') {
+                    containerBg.appendChild(this.element);
+                }
+
+                // Posição Inicial
+                this.x = Math.random() * window.innerWidth;
+                this.y = Math.random() * window.innerHeight;
+
+                // Velocidade Vertical (Sobe constante)
+                // O negativo faz subir. Valores aleatórios para efeito 3D (Parallax)
+                this.vy = -(Math.random() * 0.15 + 0.05); 
+            }
+
+            update() {
+                this.y += this.vy;
+
+                // LÓGICA DO INFINITO: Se sair pelo topo (y < -10), 
+                // joga ela instantaneamente para baixo da tela (innerHeight + 10)
+                if (this.y < -10) {
+                    this.y = window.innerHeight + 10;
+                    this.x = Math.random() * window.innerWidth; // Nova posição X aleatória
+                }
+
+                this.element.style.transform = `translate(${this.x}px, ${this.y}px)`;
+            }
+        }
+
+        // Criar as estrelas
+        for(let j=0; j<starCount; j++) {
+            starsArray.push(new Estrela());
+        }
+        
+        // --- PARTE 3: LOOP DE ANIMAÇÃO ---
+        let mx = -1000, my = -1000; 
+
+        window.addEventListener('mousemove', (e) => {
+            mx = e.clientX;
+            my = e.clientY;
+        });
+
+        function animate() {
+            // Atualiza os Ícones (Seu código anterior dos meteoros/ícones)
+            if (typeof iconsArray !== 'undefined') {
+                iconsArray.forEach(icone => icone.update(mx, my));
+            }
+
+            // Atualiza as Estrelas (NOVO: Agora elas se movem aqui)
+            starsArray.forEach(star => star.update());
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
+<script>
+    // Abre a janela
+    function abrirModal(id) {
+        const modal = document.getElementById(id);
+        if(modal) {
+            document.body.appendChild(modal); 
+            modal.classList.add('show');
+        }
+    }
+
+    // Fecha todas as janelas
+    function fecharModais() {
+        const modais = document.querySelectorAll('.constellation-modal');
+        modais.forEach(m => m.classList.remove('show'));
+    }
+
+    // Fecha a janela se clicar na área transparente
+    window.addEventListener('click', function(e) {
+        if (e.target.classList.contains('constellation-modal')) {
+            fecharModais();
+        }
+    });
+
+    // Fecha a janela se apertar ESC
+    window.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') fecharModais();
+    });
+
+    // NOVO: Fecha a janela instantaneamente se o usuário der scroll na tela
+    window.addEventListener('scroll', function() {
+        // Só tenta fechar se tiver algum modal aberto na tela
+        const modalAberto = document.querySelector('.constellation-modal.show');
+        if (modalAberto) {
+            fecharModais();
+        }
+    });
+</script>
 </body>
 </html>
