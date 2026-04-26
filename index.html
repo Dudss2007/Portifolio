@@ -347,13 +347,23 @@ function moverCarrossel(distancia) {
 }
 </script>
 <script>
+    document.addEventListener("DOMContentLoaded", function() {
         const container = document.getElementById('anime-bg');
+        if (!container) return; // Evita erros se o container não existir
+
         const w = window.innerWidth;
         const h = window.innerHeight;
+        
+        // A MÁGICA DA OTIMIZAÇÃO: Detecta se é celular (telas menores que 768px)
+        const isMobile = window.innerWidth <= 768;
 
-        // --- PARTE 1: ÍCONES QUE MUDAM DE DIREÇÃO ---
-        const iconsList = ['Icons/code1.webp', 'Icons/code2.webp', 'Icons/code1.webp']; // Suas imagens
-        const numIcons = 15;
+        // Se for celular: 0 ícones (poluem a tela) e apenas 50 estrelas paradas.
+        // Se for PC: 15 ícones voadores e 550 estrelas animadas.
+        const numIcons = isMobile ? 0 : 15; 
+        const starCount = isMobile ? 50 : 550; 
+
+        // --- PARTE 1: ÍCONES ---
+        const iconsList = ['Icons/code1.webp', 'Icons/code2.webp', 'Icons/code1.webp']; 
         const iconsArray = [];
 
         class Icone {
@@ -361,55 +371,42 @@ function moverCarrossel(distancia) {
                 this.element = document.createElement('div');
                 this.element.classList.add('bloco-anime');
                 
-                // Imagem aleatória
                 const img = iconsList[Math.floor(Math.random() * iconsList.length)];
                 this.element.style.backgroundImage = `url('${img}')`;
                 
-                // Tamanho e Opacidade
-                this.size = Math.random() * 100 + 60; // Entre 60 e 140
+                this.size = Math.random() * 100 + 60; 
                 this.element.style.width = `${this.size}px`;
                 this.element.style.height = `${this.size}px`;
                 this.element.style.opacity = Math.random() * 0.4 + 0.2;
 
                 container.appendChild(this.element);
 
-                // Posição Inicial (Aleatória na tela)
                 this.x = Math.random() * window.innerWidth;
                 this.y = Math.random() * window.innerHeight;
-
-                // VELOCIDADE (VX e VY) - Isso define a direção e rapidez
-                // Valores entre -1.5 e 1.5 pixels por frame
                 this.vx = (Math.random() - 0.5) * 3; 
                 this.vy = (Math.random() - 0.5) * 3;
-
-                // Rotação
                 this.angle = 0;
                 this.spin = (Math.random() - 0.5) * 2;
+                
+                // Já posiciona o ícone na criação
+                this.element.style.transform = `translate(${this.x}px, ${this.y}px) rotate(${this.angle}deg)`;
             }
 
             update(mouseX, mouseY) {
-                // 1. Calcular distância do mouse
-                const dx = this.x - mouseX; // Distância X
-                const dy = this.y - mouseY; // Distância Y
-                const dist = Math.sqrt(dx*dx + dy*dy); // Pitágoras
+                const dx = this.x - mouseX; 
+                const dy = this.y - mouseY; 
+                const dist = Math.sqrt(dx*dx + dy*dy); 
                 const raioInfinito = 250;
 
-                // 2. SE O MOUSE ESTIVER PERTO: MUDA A VELOCIDADE (DEFLEXÃO)
                 if (dist < raioInfinito) {
                     const angle = Math.atan2(dy, dx);
-                    
-                    
-                    // Quanto mais perto (dist menor), maior a força de repulsão
-                    // É quase impossível tocar o centro (mouse)
                     const forca = (raioInfinito - dist) / raioInfinito; 
-                    const repulsao = forca * 15; // Multiplicador de força (Mugen)
+                    const repulsao = forca * 15; 
 
-                    // Aplica a força na velocidade atual
                     this.vx += Math.cos(angle) * repulsao;
                     this.vy += Math.sin(angle) * repulsao;
                 }
 
-                // 3. Limitar velocidade máxima (para não sair voando na velocidade da luz)
                 const speed = Math.sqrt(this.vx*this.vx + this.vy*this.vy);
                 const maxSpeed = 0.8;
                 if (speed > maxSpeed) {
@@ -417,74 +414,58 @@ function moverCarrossel(distancia) {
                     this.vy = (this.vy / speed) * maxSpeed;
                 }
 
-                // 4. Mover o objeto (Atualizar Posição)
                 this.x += this.vx;
                 this.y += this.vy;
                 this.angle += this.spin;
 
-                // 5. Teleporte (Pac-Man): Se sair da tela, volta do outro lado
                 if (this.x > window.innerWidth + 100) this.x = -100;
                 if (this.x < -100) this.x = window.innerWidth + 100;
                 if (this.y > window.innerHeight + 100) this.y = -100;
                 if (this.y < -100) this.y = window.innerHeight + 100;
 
-                // 6. Aplicar no HTML
                 this.element.style.transform = `translate(${this.x}px, ${this.y}px) rotate(${this.angle}deg)`;
             }
         }
 
-        // Criar os ícones
         for(let i=0; i<numIcons; i++) {
             iconsArray.push(new Icone());
         }
 
-        // --- PARTE 2: ESTRELAS DE FUNDO (VISUAL APENAS) ---
-        // Mantive sua lógica de estrelas para preencher o fundo
+        // --- PARTE 2: ESTRELAS DE FUNDO ---
         const starsArray = [];
-        const starCount = 550; // Mantive sua quantidade
 
         class Estrela {
             constructor() {
                 this.element = document.createElement('div');
                 this.element.classList.add('particula-espaco');
                 
-                // Tamanho e Opacidade
                 const size = Math.random() * 3;
                 this.element.style.width = size + 'px'; 
                 this.element.style.height = size + 'px';
                 this.element.style.opacity = Math.random(); 
                 
-                // IMPORTANTE: Usa 'container' (ou 'containerBg' se for o nome da sua variável principal)
-                if (typeof container !== 'undefined') {
-                    container.appendChild(this.element);
-                } else if (typeof containerBg !== 'undefined') {
-                    containerBg.appendChild(this.element);
-                }
+                container.appendChild(this.element);
 
-                // Posição Inicial
                 this.x = Math.random() * window.innerWidth;
                 this.y = Math.random() * window.innerHeight;
-
-                // Velocidade Vertical (Sobe constante)
-                // O negativo faz subir. Valores aleatórios para efeito 3D (Parallax)
                 this.vy = -(Math.random() * 0.15 + 0.05); 
+                
+                // Já posiciona a estrela na criação
+                this.element.style.transform = `translate(${this.x}px, ${this.y}px)`;
             }
 
             update() {
                 this.y += this.vy;
 
-                // LÓGICA DO INFINITO: Se sair pelo topo (y < -10), 
-                // joga ela instantaneamente para baixo da tela (innerHeight + 10)
                 if (this.y < -10) {
                     this.y = window.innerHeight + 10;
-                    this.x = Math.random() * window.innerWidth; // Nova posição X aleatória
+                    this.x = Math.random() * window.innerWidth; 
                 }
 
                 this.element.style.transform = `translate(${this.x}px, ${this.y}px)`;
             }
         }
 
-        // Criar as estrelas
         for(let j=0; j<starCount; j++) {
             starsArray.push(new Estrela());
         }
@@ -492,25 +473,28 @@ function moverCarrossel(distancia) {
         // --- PARTE 3: LOOP DE ANIMAÇÃO ---
         let mx = -1000, my = -1000; 
 
-        window.addEventListener('mousemove', (e) => {
-            mx = e.clientX;
-            my = e.clientY;
-        });
-
-        function animate() {
-            // Atualiza os Ícones (Seu código anterior dos meteoros/ícones)
-            if (typeof iconsArray !== 'undefined') {
-                iconsArray.forEach(icone => icone.update(mx, my));
-            }
-
-            // Atualiza as Estrelas (NOVO: Agora elas se movem aqui)
-            starsArray.forEach(star => star.update());
-
-            requestAnimationFrame(animate);
+        // O mousemove só importa no PC, então não precisamos dele no mobile
+        if (!isMobile) {
+            window.addEventListener('mousemove', (e) => {
+                mx = e.clientX;
+                my = e.clientY;
+            });
         }
 
+        function animate() {
+            // SÓ EXECUTA A ANIMAÇÃO PESADA SE NÃO FOR CELULAR
+            if (!isMobile) {
+                iconsArray.forEach(icone => icone.update(mx, my));
+                starsArray.forEach(star => star.update());
+                
+                requestAnimationFrame(animate);
+            }
+        }
+
+        // Inicia o ciclo
         animate();
-    </script>
+    });
+</script>
 <script>
     // Abre a janela
     function abrirModal(id) {
