@@ -929,14 +929,14 @@ button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
   flex-shrink: 0; /* Impede os cards de esmagarem uns aos outros */
   text-decoration: none;
   width: 380px;
-  background: rgba(20, 25, 35, 0.45);
+  background: rgba(20, 25, 35, 0.7);
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-top: 1px solid rgba(255, 255, 255, 0.3);
   border-left: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 20px;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: column;
   transition: all 0.3s ease;
@@ -1151,14 +1151,17 @@ body {
   }
 
 /* Desliga efeitos pesados de vidro e sombra para o celular não travar */
-  .cert-glass-card, 
+.cert-glass-card, 
   .service-card {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
-    /* Deixamos o fundo um pouco mais escuro e sólido já que não tem mais o desfoque */
     background: rgba(20, 25, 35, 0.95) !important; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5) !important; /* Sombra bem mais simples e leve */
-    transform: none !important; /* Impede que o celular tente calcular animações 3D no scroll */
+    
+    /* MUDANÇA AQUI: Remove a sombra e adiciona uma borda muito sutil */
+    box-shadow: none !important; 
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    
+    transform: none !important; 
   }
 
 .carousel-wrap-interactive {
