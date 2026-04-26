@@ -1142,119 +1142,69 @@ button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
     font-family: 'Courier New', Courier, monospace;
 }
 @media (max-width: 768px) {
-.hidden {
-        opacity: 1 !important;
-        filter: blur(0) !important;
-        transform: translateY(0) !important;
-        transition: none !important;
+    
+    /* 1. ANIQUILAÇÃO TOTAL DE QUALQUER FADE-IN OU ANIMAÇÃO */
+    *, .hidden, .show, [data-aos], .bloco-anime, .service-card, .cert-glass-card {
         animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        filter: none !important;
     }
-.service-card {
-    width: 90% !important; /* Não deixa encostar nas bordas da tela */
-    max-width: 340px !important; /* Trava a largura máxima para ficar um retângulo bonito */
-    min-height: auto !important; /* Tira aquela altura gigante */
-    margin: 0 auto 20px auto !important; /* Centraliza na tela e dá espaço embaixo */
-  }
 
-  /* Deixa a parte da imagem do card um pouco mais fina/baixa também */
-  .service-img-wrapper {
-    height: 160px !important; 
-  }
+    /* 2. REMOVENDO A "BORDA PRETA" (MÁSCARA) DO CARROSSEL */
+    .carousel-wrap-interactive {
+        width: 100% !important; 
+        left: auto !important; 
+        right: auto !important;
+        margin-left: 0 !important; 
+        margin-right: 0 !important;
+        mask-image: none !important; /* MATANDO A BORDA PRETA FEIA */
+        -webkit-mask-image: none !important;
+        background: transparent !important;
+    }
 
-  /* 2. Matando as animações de Fade In e garantindo que tudo apareça direto */
-  /* Se você usa classes nativas ou bibliotecas (tipo AOS), isso neutraliza tudo */
-  .service-card, 
-  .cert-glass-card,
-  .box-skills,
-  [data-aos] /* Se usar a biblioteca AOS */ {
-    animation: none !important;
-    transition: none !important;
-    opacity: 1 !important; /* CRÍTICO: Garante que o card não fique invisível! */
-    transform: none !important; /* Remove qualquer movimento de entrada */
-    visibility: visible !important;
-  }
-body {
-    /* Mude o 'center' para 'right' ou 'left', dependendo de onde o astronauta está na imagem original */
-    background-position: right center !important; 
-    /* Se a imagem estiver bugando ou sumindo ao rolar, descomente a linha abaixo: */
-    /* background-attachment: scroll !important; */
-  }
-
-/* Desliga efeitos pesados de vidro e sombra para o celular não travar */
-.cert-glass-card, 
-  .service-card {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    background: rgba(20, 25, 35, 0.95) !important; 
+    /* 3. CARDS DE PROJETOS MENORES E SEM BORDAS/SOMBRAS */
+    .service-card {
+        width: 80vw !important; /* Ocupa só 80% da tela, deixando margem pra leitura */
+        max-width: 300px !important; /* Força a ser menorzinho */
+        min-height: auto !important; 
+        margin: 0 auto 20px auto !important; 
+        border: none !important; /* Tira qualquer borda */
+        box-shadow: none !important; /* Tira qualquer sombra */
+        background: rgba(20, 25, 35, 1) !important; /* Fundo sólido e limpo */
+        border-radius: 15px !important;
+    }
     
-    /* MUDANÇA AQUI: Remove a sombra e adiciona uma borda muito sutil */
-    box-shadow: none !important; 
-    border: 1px solid rgba(255, 255, 255, 0.05) !important;
-    
-    transform: none !important; 
-  }
+    .service-img-wrapper { 
+        height: 150px !important; /* Imagem mais baixa pra sobrar espaço pro texto */
+        border-bottom: none !important;
+    }
 
-.carousel-wrap-interactive {
-    width: 100% !important;
-    left: auto !important;
-    right: auto !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
+    /* Ajustes do Holo Card */
+    .holo-card { padding: 25px; }
+    .holo-card::after { top: 60px; clip-path: polygon(0% 50%, 5% 50%, 8% 0%, 11% 100%, 14% 50%, 100% 50%); }
+
+    /* Desliga Vidro nos Diplomas */
+    .cert-glass-card {
+        backdrop-filter: none !important; 
+        -webkit-backdrop-filter: none !important;
+        background: rgba(20, 25, 35, 1) !important; 
+        box-shadow: none !important; 
+        border: none !important; 
+    }
+
+    body { background-position: right center !important; }
+
+    /* Conserta o Nome Quebrado */
+    .Nome {
+        white-space: normal !important; width: 100% !important; border-right: none !important; 
+        font-size: 1.8rem !important; line-height: 1.3;
+    }
+
+    /* Conserta o Diploma Esmagado */
+    .cert-footer { flex-direction: column !important; align-items: flex-start !important; gap: 15px; }
+    .cert-info-right { align-items: flex-start !important; }
+    .btn-ver-diploma { width: 100%; justify-content: center; }
 }
-  /* 1. Consertando o Nome (Desliga a animação para o texto poder pular linha) */
-  .Nome {
-    white-space: normal !important; 
-    width: 100% !important; 
-    border-right: none !important; 
-    animation: none !important; 
-    font-size: 1.8rem !important; /* Diminui um pouco a fonte para caber bonito */
-    line-height: 1.3;
-  }
-
-  /* 2. Consertando o Diploma (Empilha o botão e o status) */
-  .cert-footer {
-    flex-direction: column !important; /* Coloca um embaixo do outro */
-    align-items: flex-start !important; /* Alinha para a esquerda */
-    gap: 15px; /* Dá um respiro entre o botão e o texto */
-  }
-
-  .cert-info-right {
-    align-items: flex-start !important;
-  }
-
-  .btn-ver-diploma {
-    width: 100%; /* Faz o botão esticar na tela toda, fica ótimo pra clicar no celular */
-    justify-content: center;
-  }
-
-.social-links-bottom {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    width: 100%;
-}
-
-.social-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 45px;
-    height: 45px;
-    background: rgba(255, 255, 255, 0.05); /* Fundo transparente sutil */
-    color: rgba(255, 255, 255, 0.5); /* Cor cinza clarinho inicial */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 50%; /* Deixa redondinho */
-    font-size: 1.3rem;
-    transition: all 0.3s ease;
-    text-decoration: none;
-}
-
-.social-icon:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: #ffffff; /* Fica branco vivo no hover */
-    border-color: rgba(255, 255, 255, 0.3);
-    transform: translateY(-4px); /* Dá o pulinho pra cima */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); /* Sombra escura e elegante, sem neon */
-}
-
