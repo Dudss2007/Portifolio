@@ -863,7 +863,7 @@ button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
 
 .carousel-wrap-interactive {
   position: relative;
-  width: 100vw;
+  width: 100vw; /* Volte para 100vw aqui */
   left: 50%;
   right: 50%;
   margin-left: -50vw;
@@ -1142,7 +1142,15 @@ button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
     font-family: 'Courier New', Courier, monospace;
 }
 @media (max-width: 768px) {
-  
+
+.carousel-wrap-interactive {
+    width: 100% !important;
+    left: auto !important;
+    right: auto !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
   /* 1. Consertando o Nome (Desliga a animação para o texto poder pular linha) */
   .Nome {
     white-space: normal !important; 
@@ -1168,7 +1176,7 @@ button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
     width: 100%; /* Faz o botão esticar na tela toda, fica ótimo pra clicar no celular */
     justify-content: center;
   }
-}
+
 .social-links-bottom {
     display: flex;
     justify-content: center;
