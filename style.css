@@ -1142,7 +1142,30 @@ button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
     font-family: 'Courier New', Courier, monospace;
 }
 @media (max-width: 768px) {
+.service-card {
+    width: 90% !important; /* Não deixa encostar nas bordas da tela */
+    max-width: 340px !important; /* Trava a largura máxima para ficar um retângulo bonito */
+    min-height: auto !important; /* Tira aquela altura gigante */
+    margin: 0 auto 20px auto !important; /* Centraliza na tela e dá espaço embaixo */
+  }
 
+  /* Deixa a parte da imagem do card um pouco mais fina/baixa também */
+  .service-img-wrapper {
+    height: 160px !important; 
+  }
+
+  /* 2. Matando as animações de Fade In e garantindo que tudo apareça direto */
+  /* Se você usa classes nativas ou bibliotecas (tipo AOS), isso neutraliza tudo */
+  .service-card, 
+  .cert-glass-card,
+  .box-skills,
+  [data-aos] /* Se usar a biblioteca AOS */ {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important; /* CRÍTICO: Garante que o card não fique invisível! */
+    transform: none !important; /* Remove qualquer movimento de entrada */
+    visibility: visible !important;
+  }
 body {
     /* Mude o 'center' para 'right' ou 'left', dependendo de onde o astronauta está na imagem original */
     background-position: right center !important; 
@@ -1227,3 +1250,4 @@ body {
     transform: translateY(-4px); /* Dá o pulinho pra cima */
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); /* Sombra escura e elegante, sem neon */
 }
+
