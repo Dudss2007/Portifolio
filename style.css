@@ -1142,7 +1142,10 @@ button:hover .stars { display: block; filter: drop-shadow(0 0 10px #447794); }
     font-family: 'Courier New', Courier, monospace;
 }
 @media (max-width: 768px) {
-    
+    /* Esconde o vídeo do buraco negro no celular para poupar bateria e performance */
+    .hero-video {
+        display: none !important;
+    }
     /* 1. ANIQUILAÇÃO TOTAL DE QUALQUER FADE-IN OU ANIMAÇÃO */
     *, .hidden, .show, [data-aos], .bloco-anime, .service-card, .cert-glass-card {
         animation: none !important;
