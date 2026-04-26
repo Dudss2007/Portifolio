@@ -1,6 +1,10 @@
 /* =========================================
    1. RESET E VARIÁVEIS GERAIS
    ========================================= */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden; /* Isso proíbe a rolagem para os lados (eixo X) */
+}
 :root {
     /* Modo Claro (Padrão) */
     --cor-fundo: #ffffff;
